@@ -11,7 +11,7 @@
                         <?php if ($_SESSION['service'] == '1') { ?>
                             <li><a href="ci.php">Saisir un invité</a></li>
                         <?php } ?>
-                        <li><a href="ci_resultats.php">Consulter les résultats</a></li>
+                        <li><a href="ci_resultats.php">Consulter les résultats provisoires</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -20,7 +20,7 @@
                         <?php if ($_SESSION['css'] == '1') { ?>
                             <li><a href="css.php">Saisir une soirée sport</a></li>
                         <?php } ?>
-                        <li><a href="css_resultats.php">Consulter les résultats</a></li>
+                        <li><a href="css_resultats.php">Consulter les résultats provisoires</a></li>
                     </ul>
                 </li>
                 <li> <a href="bai.php">Boite à idées</a></li>
