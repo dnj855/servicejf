@@ -16,7 +16,7 @@
     <body>
         <div class="container">
             <header class="col-sm-12">
-                <h1>Bienvenue sur le portail du service jeux&festivités:</h1>
+                <h1 class="text-center">Bienvenue sur le portail du service jeux&festivités:</h1>
             </header>
             <div class="row">
                 <section class="col-sm-6 col-sm-offset-3">
