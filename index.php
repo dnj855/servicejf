@@ -9,65 +9,91 @@ include('auth.php');
         <title>Bienvenue sur le portail du service j&f:</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+        <style>
+            h1 {
+                border-bottom: 2px solid #e5e5e5;
+                margin-bottom: 20px;
+                padding-bottom: 5px;
+            }
+        </style>
     </head>
 
     <body>
         <?php include('nav_menu.php') ?>
         <div class="container">
-            <p align="center"><img src="logo.png" alt="Logo" width="500px" class="logo"></p>
-            <p class="index_titre">voici les jeux en cours :</p>
-            <table class="index">
-                <tr>
-                    <td class="index_td_left">
-                        <p class="index_titre_td">Le challenge de l'invité</p>
-                    </td>
-                    <td class="index_td_right">
-                        <p class="index_titre_td">Le challenge des soirées foot</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="index_td_left">
-                        <p class="index_description_td">
-                            Direct ou PAD ? Studio ou téléphone ?<br />Le challenge de l'invité est le point fondateur du service j&f:
-                        </p>
-                        <p class="index_liens">
-                            <?php if ($_SESSION['service'] == '1') { ?>
-                                <a href="ci.php">Page à remplir pour l'intervieweur</a><br />
-                            <?php } ?>
-                            <a href="ci_resultats.php">Consultation des données</a>
-                        </p>
-                    </td>
-                    <td class="index_td_right">
-                        <p class="index_description_td">
-                            Sur proposition du président d'honneur, voyons quel technicien porte le plus chance au FC Metz.
-                        </p>
-                        <p class="index_liens">
-                            <?php if ($_SESSION['css'] == '1') { ?>
-                                <a href="css.php">La page à remplir après chaque journée de championnat</a><br />
-                            <?php } ?>
-                            <a href="css_resultats.php">Consultation des données</a>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="index_td_left">
-                        <p class="index_titre_td">Une boite à idées</p>
-                    </td>
-                    <td class="index_td_right">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="index_td_left" height="300px">
-                        <p class="index_description_td">
-                            Toujours à l'écoute, le service j&f: vous propose de nous donner vos meilleures idées de jeux et de festivités.
-                        </p>
-                        <p class="index_liens">
-                            <a href="bai.php">Cliquez ici, tout simplement</a>
-                    </td>
-                    <td class="index_td_right">
-                    </td>
-                </tr>
-            </table>
+            <header>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img src="logo.png" alt="Logo" width="500px" class="logo">
+                    </div>
+                    <div class="col-md-12 visible-md visible-lg text-center">
+                        <h1>Voici les jeux en cours</h1>
+                    </div>
+                </div>
+            </header>
+
+            <section>
+                <div class="row">
+                    <div class="col-sm-5 col-sm-offset-1 text-right">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Le challenge de l'invité
+                            </div>
+                            <div class="panel-body">
+                                Direct ou PAD ? Studio ou téléphone ?<br />Le challenge de l'invité est le point fondateur du service j&f:
+                            </div>
+                            <ul class="list-group">
+                                <?php if ($_SESSION['service'] == '1') { ?>
+                                    <li class="list-group-item">
+                                        <a href="ci.php">Page à remplir pour l'intervieweur</a>
+                                    </li>
+                                <?php } ?>
+                                <li class="list-group-item">
+                                    <a href="ci_resultats.php">Consultation des résultats provisoires</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 text-left">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Le challenge des soirées sport
+                            </div>
+                            <div class="panel-body">
+                                Sur proposition du président d'honneur, voyons quel technicien porte le plus chance au FC Metz.
+                            </div>
+                            <ul class="list-group">
+                                <?php if ($_SESSION['css'] == '1') { ?>
+                                    <li class="list-group-item">
+                                        <a href="css.php">La page à remplir après chaque journée de championnat</a>
+                                    </li>
+                                <?php } ?>
+                                <li class="list-group-item">
+                                    <a href="css_resultats.php">Consultation des résultats provisoires</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5 col-sm-offset-1 text-right">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Une boite à idées
+                            </div>
+                            <div class="panel-body">
+                                Toujours à l'écoute, le service j&f: vous propose de lui donner vos meilleures idées de jeux et de festivités.
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="bai.php">Cliquez ici, tout simplement</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
