@@ -3,38 +3,56 @@
     <head>
         <meta charset="utf-8" />
         <title>Bienvenue sur le portail du service j&f:</title>
-        <link href="auth.css" rel="stylesheet" type="text/css" />
-        <link href="design.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
-    <div class="index">
-    <p class="titre">connexion au portail du service j&f:</p>
-    <?php if($_GET['log'] == 'no') {
-        echo '<p class="formulaire_erreur">Les informations saisies ne sont pas correctes.</p>';
-    }
-    elseif ($_GET['log'] == 'nopseudo') {
-        echo '<p class="formulaire_erreur">Ce compte utilisateur n\'existe pas.</p>';
-    } ?>
-    <div class="formulaire">
-    <table class="formulaire">
-    <form method="post" action="auth_traitement.php">
-    <tr>
-    <td>Votre pseudo :</td>
-    <td><input type="text" name="auth_pseudo" class="formulaire"></td>
-    </tr>
-    <tr>
-    <td>Votre mot de passe :</td>
-    <td><input type="password" name="auth_mdp" class="formulaire"></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td><input type="submit" class="envoi_formulaire" value="Se connecter"></td>
-    </tr>
-    </form>
-    </table>
+        <div class="container">
+            <header class="col-sm-12 well">
+                <h1>Bienvenue sur le portail du service j&f:</h1>
+            </header>
+            <div class="row">
+                <section class="col-sm-6 col-sm-offset-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Connexion obligatoire pour accéder au portail</h2>
+                        </div>
+                        <div class="panel-body">
+                            <form method="post" action="auth_traitement.php">
+                                <?php if ($_GET['log'] != 'new') { ?>
+                                    <div class="alert alert-danger">
+                                        <span class="glyphicon glyphicon-remove-sign"></span>
+                                        <?php
+                                        if ($_GET['log'] == 'no') {
+                                            echo ' Les informations saisies ne sont pas correctes.';
+                                        } elseif ($_GET['log'] == 'nopseudo') {
+                                            echo ' Ce compte utilisateur n\'existe pas.';
+                                        }
+                                        ?>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
+                                <div class="form-group">
+                                    <label for="auth_pseudo" class="sr-only">Votre pseudo</label>
+                                    <input type="text" name="auth_pseudo" id="auth_pseudo" placeholder="Votre pseudo" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="auth_mdp" class="sr-only">Votre mot de passe</label>
+                                    <input type="password" name="auth_mdp" id="auth_mdp" placeholder="Votre mot de passe" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-check"></span> Se connecter !</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class='panel-footer'>
+                            En cas d'oubli, le responsable du service j&f: se fera une joie de vous aider.
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
     </div>
-    <p class="help">En cas d'oubli du pseudo ou du mot de passe, le responsable du service j&f: se fera une joie de vous aider.</p>
-    </div>
-    </body>
-    </html>
+</body>
+</html>
