@@ -21,18 +21,18 @@ include('auth.php');
     <body>
         <?php include('nav_menu.php') ?>
         <div class="container">
-            <header>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <img src="logo.png" alt="Logo" width="500px" class="logo">
-                    </div>
-                    <div class="col-md-12 visible-md visible-lg text-center">
-                        <h1>Voici les jeux en cours</h1>
-                    </div>
-                </div>
+            <header class="col-md-12 text-center">
+                <img src="logo.png" alt="Logo" width="500px" class="logo">
             </header>
 
             <section>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <legend>
+                            découvrez les jeux et festivités en cours
+                        </legend>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-sm-5 col-sm-offset-1 text-right">
                         <div class="panel panel-default">
