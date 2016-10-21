@@ -9,12 +9,6 @@ include('auth.php');
         <title>Bienvenue sur le portail du service j&f:</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-        <style>
-            body {
-                background-image: url('assets/img/concrete_seamless.png');
-                background-repeat: repeat;
-            }
-        </style>
     </head>
 
     <body>
