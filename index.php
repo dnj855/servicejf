@@ -9,6 +9,12 @@ include('auth.php');
         <title>Bienvenue sur le portail du service j&f:</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+        <style>
+            body {
+                background-image: url('assets/img/concrete_seamless.png');
+                background-repeat: repeat;
+            }
+        </style>
     </head>
 
     <body>
@@ -58,7 +64,7 @@ include('auth.php');
                     </td>
                 </tr>
                 <tr>
-                    <td class="index_td_left">
+                    <td class="index_td_left" height="300px">
                         <p class="index_description_td">
                             Toujours à l'écoute, le service j&f: vous propose de nous donner vos meilleures idées de jeux et de festivités.
                         </p>
