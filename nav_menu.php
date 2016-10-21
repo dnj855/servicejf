@@ -18,12 +18,30 @@
                     <a data-target="#" class="dropdown-toggle" data-toggle="dropdown">Challenge des soirées sport <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php if ($_SESSION['css'] == '1') { ?>
-                            <li><a href="css.php">Saisir une soirée foot</a></li>
+                            <li><a href="css.php">Saisir une soirée sport</a></li>
                         <?php } ?>
                         <li><a href="css_resultats.php">Consulter les résultats</a></li>
                     </ul>
                 </li>
                 <li> <a href="bai.php">Boite à idées</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a data-target="#" class="dropdown-toggle" data-toggle="dropdown">Bonjour <?php echo $_SESSION['prenom']; ?> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="auth_modifier_utilisateur.php">Modifier mon compte</a>
+                        </li>
+                        <li><a href="mess.php">Messagerie interne <span class="badge"><?php echo $mess_nonlus; ?></span></a></li>
+                        <?php
+                        if ($_SESSION['admin'] == 1) {
+                            echo '<li class="divider"></li><li><a href="ar_index.php">Administration du site</a></li>';
+                        }
+                        ?>
+                        <li class="divider"></li>
+                        <li><a href="auth_logout.php">Me déconnecter</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

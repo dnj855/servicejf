@@ -14,7 +14,6 @@ include('auth.php');
     <body>
         <?php include('nav_menu.php') ?>
         <div class="container">
-            <?php include('auth_menu_utilisateur.php') ?>
             <p align="center"><img src="logo.png" alt="Logo" width="500px" class="logo"></p>
             <p class="index_titre">voici les jeux en cours :</p>
             <table class="index">
