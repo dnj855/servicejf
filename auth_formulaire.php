@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title>Bienvenue sur le portail du service j&f:</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
         <style>
             h1 {
                 border-bottom: 1px solid #e5e5e5;
@@ -26,31 +27,33 @@
                         </div>
                         <div class="panel-body">
                             <form method="post" action="auth_traitement.php">
-                                <?php if ($_GET['log'] != 'new') { ?>
-                                    <div class="alert alert-danger">
-                                        <span class="glyphicon glyphicon-remove-sign"></span>
+                                <fieldset>
+                                    <?php if ($_GET['log'] != 'new') { ?>
+                                        <div class="alert alert-danger">
+                                            <span class="glyphicon glyphicon-remove-sign"></span>
+                                            <?php
+                                            if ($_GET['log'] == 'no') {
+                                                echo ' Les informations saisies ne sont pas correctes.';
+                                            } elseif ($_GET['log'] == 'nopseudo') {
+                                                echo ' Ce compte utilisateur n\'existe pas.';
+                                            }
+                                            ?>
+                                        </div>
                                         <?php
-                                        if ($_GET['log'] == 'no') {
-                                            echo ' Les informations saisies ne sont pas correctes.';
-                                        } elseif ($_GET['log'] == 'nopseudo') {
-                                            echo ' Ce compte utilisateur n\'existe pas.';
-                                        }
-                                        ?>
+                                    }
+                                    ?>
+                                    <div class="form-group">
+                                        <label for="auth_pseudo" class="sr-only">Votre pseudo</label>
+                                        <input type="text" name="auth_pseudo" id="auth_pseudo" placeholder="Votre pseudo" class="form-control">
                                     </div>
-                                    <?php
-                                }
-                                ?>
-                                <div class="form-group">
-                                    <label for="auth_pseudo" class="sr-only">Votre pseudo</label>
-                                    <input type="text" name="auth_pseudo" id="auth_pseudo" placeholder="Votre pseudo" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="auth_mdp" class="sr-only">Votre mot de passe</label>
-                                    <input type="password" name="auth_mdp" id="auth_mdp" placeholder="Votre mot de passe" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-check"></span> Se connecter !</button>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="auth_mdp" class="sr-only">Votre mot de passe</label>
+                                        <input type="password" name="auth_mdp" id="auth_mdp" placeholder="Votre mot de passe" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-check"></span> Se connecter !</button>
+                                    </div>
+                                </fieldset>
                             </form>
                         </div>
                         <div class='panel-footer'>
