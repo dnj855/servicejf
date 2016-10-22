@@ -35,7 +35,12 @@
                         <li><a href="mess.php">Messagerie interne <span class="badge"><?php echo $mess_nonlus; ?></span></a></li>
                         <?php
                         if ($_SESSION['admin'] == 1) {
-                            echo '<li class="divider"></li><li><a href="ar_index.php">Administration du site</a></li>';
+                            ?>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Administration du site</li>
+                            <li><a href="ar_affichage_personnel.php">Gestion du personnel</a></li>
+                            <li><a href="ar_bai_consult.php">Messages de la boite à idées</a></li>
+                            <?php
                         }
                         ?>
                         <li class="divider"></li>
