@@ -15,7 +15,7 @@ include('auth.php');
     <body>
         <?php include('nav_menu.php') ?>
         <div class="container">
-            <header class="col-md-12 text-center">
+            <header class="col-md-6 col-md-offset-3 text-center">
                 <img src="logo.png" alt="Logo" width="500px" class="logo">
             </header>
 

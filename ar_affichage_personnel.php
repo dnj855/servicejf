@@ -48,7 +48,7 @@ $donnees_service = $bdd->query('SELECT DISTINCT personnel_fbln.service_id, servi
                         <?php
                         if ($_GET['error'] == 0) {
                             ?>
-                            <div class="col-sm-4 col-sm-offset-4">
+                            <div class="col-md-4 col-md-offset-4">
                                 <div class="alert alert-success">
                                     <span class="glyphicon glyphicon-ok-sign"></span> Modifications effectuées.
                                 </div>
@@ -56,7 +56,7 @@ $donnees_service = $bdd->query('SELECT DISTINCT personnel_fbln.service_id, servi
                             <?php
                         } elseif ($_GET['error'] == 1) {
                             ?>
-                            <div class="col-sm-4 col-sm-offset-4">
+                            <div class="col-md-4 col-md-offset-4">
                                 <div class="alert alert-danger">
                                     <span class="glyphicon glyphicon-remove-sign"></span> Une erreur s'est produite, réessayer.
                                 </div>
@@ -76,7 +76,7 @@ $donnees_service = $bdd->query('SELECT DISTINCT personnel_fbln.service_id, servi
                         $donnees_query->execute(array($service['service_id']));
                         ?>
 
-                        <div class="col-sm-6">
+                        <div class="col-md-6">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <?php echo $service['nom_service']; ?>
@@ -125,5 +125,9 @@ $donnees_service = $bdd->query('SELECT DISTINCT personnel_fbln.service_id, servi
                 </div>
             </section>
         </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="assets/js/bootstrap.min.js"></script>
     </body>
 </html>
