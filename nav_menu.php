@@ -6,7 +6,7 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a data-target="#" class="dropdown-toggle" data-toggle="dropdown">Challenge invité <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Challenge invité <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php if ($_SESSION['service'] == '1') { ?>
                             <li><a href="ci.php">Saisir un invité</a></li>
@@ -15,7 +15,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a data-target="#" class="dropdown-toggle" data-toggle="dropdown">Challenge des soirées sport <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Challenge des soirées sport <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php if ($_SESSION['css'] == '1') { ?>
                             <li><a href="css.php">Saisir une soirée sport</a></li>
@@ -27,7 +27,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a data-target="#" class="dropdown-toggle" data-toggle="dropdown">Bonjour <?php echo $_SESSION['prenom']; ?> <span class="badge"><?php echo $mess_nonlus; ?></span> <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bonjour <?php echo $_SESSION['prenom']; ?> <span class="badge"><?php echo $mess_nonlus; ?></span> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="auth_modifier_utilisateur.php">Modifier mon compte</a>
