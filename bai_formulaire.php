@@ -6,61 +6,51 @@ include('auth.php');
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Laissez nous un message</title>
-        <link href="design.css" rel="stylesheet" type="text/css" />
-        <link href="auth.css" rel="stylesheet" type="text/css" />
+        <title>Service j&f: - boite à idées</title>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/design.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
-    <?php include('auth_menu_utilisateur.php') ?>
-    <?php include('nav_menu.php') ?>   
-
-    <div class="index">
-    <p class="titre">Nous sommes toujours à l'écoute. Qu'as-tu à nous dire ?</p>
-    <?php
-
-    if(isset($_POST['message']))
-    {
-    ?>
-    <p class="formulaire_erreur">Promis, on te lit au plus vite !</p>
-    <?php    
-    }
-
-    ?> 
-    <div class="formulaire">
-    <form method="post" action="bai.php">
-    <table class="formulaire">
-    <tr>
-    <?php
-    if(isset($_POST['message']))
-    { ?>
-        <td colspan=2><p class="message"><?php echo nl2br(htmlspecialchars($message)) ?></p>
-    <?php
-    }
-    else { ?>
-    <td>
-    Inscris ton message ici :
-    </td>
-    <td>
-    <textarea name="message" rows=7 cols=35 class="formulaire"></textarea>
-    </td>
-    <?php } ?>
-    </tr>
-    <tr>
-    <td>
-    </td>
-    <td>
-    <?php
-        if(!isset($_POST['message']))
-        {
-            echo '<input type="submit" value="Envoyer mon message" class="envoi_formulaire">';
-        }
-    ?>
-    </td>
-    </tr>
-    </table>
-    </form>
-    </div>
-    </div>
+        <?php include('nav_menu.php') ?>
+        <div class="container">
+            <header>
+                <h1>boite à idées</h1>
+            </header>
+            <section class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Nous sommes toujours à l'écoute. Qu'as-tu à nous dire ?
+                        </div>
+                        <div class="panel-body">
+                            <?php if (isset($_POST['message'])) { ?>
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="alert alert-success">
+                                        <span class="glyphicon glyphicon-ok-circle"></span> Message bien reçu.<br/>Promis, on te lit au plus vite !
+                                    </div>
+                                </div>
+                            <?php } ?><form method="post">
+                                <div class="form-group">
+                                    <textarea name="message" class="form-control" rows="5" placeholder="Inscris ton message ici."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary pull-right" <?php
+                                    if (isset($_POST['message'])) {
+                                        echo 'disabled="disabled"';
+                                    }
+                                    ?>><span class="glyphicon glyphicon-ok"></span> Envoyer</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="assets/js/bootstrap.min.js"></script>
     </body>
 </html>
