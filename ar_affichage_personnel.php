@@ -81,41 +81,43 @@ $donnees_service = $bdd->query('SELECT DISTINCT personnel_fbln.service_id, servi
                                 <div class="panel-heading">
                                     <?php echo $service['nom_service']; ?>
                                 </div>
-                                <table class="table table-hover table-condensed">
-                                    <thead>
-                                        <tr>
-                                            <th>nom</th>
-                                            <th>prénom</th>
-                                            <th>pseudo</th>
-                                            <th colspan="3">actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        while ($personnel = $donnees_query->fetch()) {
-                                            ?>
-                                            <tr
-                                            <?php
-                                            //Petite mise en valeur si le personnel est un cadre.
-                                            if ($personnel['cadre'] == '1') {
-                                                echo ' class="active"';
-                                            }
-                                            ?>
-                                                >
-                                                <td><?php echo $personnel['nom']; ?></td>
-                                                <td><?php echo $personnel['prenom']; ?></td>
-                                                <td><?php echo $personnel['pseudo']; ?></td>
-                                                <td><a href = "ar_modifier_personnel.php?id=<?php echo $personnel['id']; ?>"><span class="glyphicon glyphicon-cog"></span></a></td>
-                                                <td><a href = "ar_modif_mdp_personnel.php?id=<?php echo $personnel['id']; ?>"><span class="glyphicon glyphicon-lock"></span></a></td>
-                                                <td><a href = "ar_depart_personnel.php?id=<?php echo $personnel['id']; ?>"><span class="glyphicon glyphicon-remove"></span></td>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th>nom</th>
+                                                <th>prénom</th>
+                                                <th>pseudo</th>
+                                                <th colspan="3">actions</th>
                                             </tr>
+                                        </thead>
+                                        <tbody>
                                             <?php
-                                        }
-                                        $donnees_query->closeCursor();
-                                        ?>
+                                            while ($personnel = $donnees_query->fetch()) {
+                                                ?>
+                                                <tr
+                                                <?php
+                                                //Petite mise en valeur si le personnel est un cadre.
+                                                if ($personnel['cadre'] == '1') {
+                                                    echo ' class="active"';
+                                                }
+                                                ?>
+                                                    >
+                                                    <td><?php echo $personnel['nom']; ?></td>
+                                                    <td><?php echo $personnel['prenom']; ?></td>
+                                                    <td><?php echo $personnel['pseudo']; ?></td>
+                                                    <td><a href = "ar_modifier_personnel.php?id=<?php echo $personnel['id']; ?>"><span class="glyphicon glyphicon-cog"></span></a></td>
+                                                    <td><a href = "ar_modif_mdp_personnel.php?id=<?php echo $personnel['id']; ?>"><span class="glyphicon glyphicon-lock"></span></a></td>
+                                                    <td><a href = "ar_depart_personnel.php?id=<?php echo $personnel['id']; ?>"><span class="glyphicon glyphicon-remove"></span></td>
+                                                </tr>
+                                                <?php
+                                            }
+                                            $donnees_query->closeCursor();
+                                            ?>
 
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                         <?php
