@@ -23,7 +23,7 @@ $donnees_service = $bdd->query('SELECT DISTINCT personnel_fbln.service_id, servi
         ?>
         <div class="container">
             <header class="col-sm-12">
-                <h1 class="text-center">gestion du personnel</h1>
+                <h1>gestion du personnel</h1>
             </header>
 
             <nav class="row">

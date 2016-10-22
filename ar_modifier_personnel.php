@@ -43,7 +43,7 @@ if (isset($_GET['id'])) {
             ?>
             <div class="container">
                 <header>
-                    <h1>modifier un participant</h1>
+                    <h1>modifier les informations générales</h1>
                 </header>
                 <section class="row">
                     <!--Navigation spécifique pour l'espace de gestion du personnel. Penser à changer la classe "active" !-->
