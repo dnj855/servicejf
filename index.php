@@ -29,7 +29,7 @@ include('auth.php');
                 </div>
                 <div class="row">
                     <div class="col-sm-5 col-sm-offset-1 text-right">
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 Le challenge de l'invité
                             </div>
@@ -49,7 +49,7 @@ include('auth.php');
                         </div>
                     </div>
                     <div class="col-sm-5 text-left">
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 Le challenge des soirées sport
                             </div>
@@ -71,7 +71,7 @@ include('auth.php');
                 </div>
                 <div class="row">
                     <div class="col-sm-5 col-sm-offset-1 text-right">
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 Une boite à idées
                             </div>
