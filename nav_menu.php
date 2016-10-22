@@ -1,12 +1,18 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a href='index.php' class="navbar-brand"><img height="27px" src="logosmall.png" alt="logosmall"/></a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Challenge invité <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Challenge invité <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php if ($_SESSION['service'] == '1') { ?>
                             <li><a href="ci.php">Saisir un invité</a></li>
@@ -15,7 +21,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Challenge des soirées sport <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Challenge des soirées sport <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php if ($_SESSION['css'] == '1') { ?>
                             <li><a href="css.php">Saisir une soirée sport</a></li>
@@ -49,6 +55,6 @@
                     </ul>
                 </li>
             </ul>
-        </div>
+        </div><!--/.nav-collapse -->
     </div>
 </nav>
