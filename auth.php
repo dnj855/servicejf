@@ -2,6 +2,7 @@
 
 session_start();
 include('auth_inc_connectdb.php');
+include('fonctions.php');
 
 // On va récupérer le nombre de messages non lus.
 $query = $bdd->prepare('SELECT COUNT(lu) AS mess_nonlus FROM mess WHERE id_receiver = ? AND lu = 0 GROUP BY id_receiver');

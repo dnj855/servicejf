@@ -1,6 +1,5 @@
 <?php
 include('auth.php');
-include('fonctions.php');
 ?>
 
 <!DOCTYPE html>

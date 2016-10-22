@@ -2,14 +2,12 @@
 
 session_start();
 include('auth_inc_connectdb.php');
+include('fonctions.php');
 
 if (isset($_SESSION['id'])) { // On vérifie que l'utilisateur n'est pas déjà logué.
     header('location:index.php');
 } elseif (isset($_POST['auth_pseudo']) AND isset($_POST['auth_mdp'])) {
     $auth_pseudo = htmlspecialchars($_POST['auth_pseudo']);
-    $auth_mdp = htmlspecialchars($_POST['auth_mdp']);
-    /* On vérifie que l'utilisateur a bien saisi des données, puis on les traite pour enlever les éventuelles balises html */
-    $auth_mdp = sha1($auth_mdp); //On hashe le mot de passe
 
     $query = $bdd->prepare('SELECT * FROM personnel_fbln WHERE pseudo = ?');
     $query->execute(array($auth_pseudo));
@@ -20,7 +18,7 @@ if (isset($_SESSION['id'])) { // On vérifie que l'utilisateur n'est pas déjà 
         header('location:auth.php?log=nopseudo');
     } else {
 
-        if ($pseudo['mdp'] == $auth_mdp) { // On vérifie que le mot de passe entré par l'utilisateur correspond bien à celui présent dans la BDD. Si oui, on entre les champs correspondants dans des variables de session.
+        if (check_password($_POST['auth_mdp'], $pseudo['mdp'])) { // On vérifie que le mot de passe entré par l'utilisateur correspond bien à celui présent dans la BDD. Si oui, on entre les champs correspondants dans des variables de session.
             $_SESSION['id'] = $pseudo['id'];
             $_SESSION['prenom'] = $pseudo['prenom'];
             $_SESSION['nom'] = $pseudo['nom'];

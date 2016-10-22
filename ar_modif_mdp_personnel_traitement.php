@@ -6,7 +6,7 @@ if ($_SESSION['admin'] == 0) {
 }
 
 if ($_POST['mdp1'] == $_POST['mdp2']) {
-    $pass_hashe = sha1($_POST['mdp1']);
+    $pass_hashe = hash_password($_POST['mdp1']);
     $query = $bdd->prepare('UPDATE personnel_fbln SET mdp = :mdp WHERE id = :id');
     $query->execute(array(
         'mdp' => $pass_hashe,
