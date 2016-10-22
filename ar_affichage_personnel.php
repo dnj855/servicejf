@@ -1,67 +1,129 @@
 <?php
 include('auth.php');
-if($_SESSION['admin'] == 0) {
+if ($_SESSION['admin'] == 0) {
     header('location:index.php');
 }
+//On profite pour faire les requêtes MySQL :
+$donnees_service = $bdd->query('SELECT DISTINCT personnel_fbln.service_id, service_fbln.nom AS nom_service FROM personnel_fbln JOIN service_fbln ON personnel_fbln.service_id = service_fbln.id ORDER BY service_fbln.nom');
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <title>Le personnel de FBLN</title>
-        <link href="design.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/design.css" rel="stylesheet" type="text/css" />
+
     </head>
 
     <body>
-    <?php include('nav_menu.php');
-    include('auth_menu_utilisateur.php');
-    ?>
-    <div class="index">
-    <p class="titre">la liste du personnel de FBLN</p>
-    <p class="auth_modify_nom"><a href = "ar_ajout_personnel.php" class="menu">Ajouter un joyeux participant</a></p>
-    <p class="auth_modify_nom"><a href="ar_retour_personnel.php" class="menu">Faire revenir un participant parti</a></p>
+        <?php
+        include('nav_menu.php');
+        ?>
+        <div class="container">
+            <header class="col-sm-12">
+                <h1 class="text-center">gestion du personnel</h1>
+            </header>
 
-    <?php
-    //Les messages si on vient de modifier un personnel :
-    if(isset($_GET['error'])) {
-        if($_GET['error'] == 0) {
-            echo '<p class="formulaire_erreur">Modifications effectuées.</p>';
-        }
-        elseif($_GET['error'] == 1) {
-            echo '<p class="formulaire_erreur">Une erreur s\'est produite, réessayer.</p>';
-        }
-    }
+            <nav class="row">
+                <div class="col-sm-12 well well-sm">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="ar_ajout_personnel.php">Ajouter un joyeux participant</a>
+                        </li>
+                        <li>
+                            <a href="ar_retour_personnel.php">Faire revenir un participant</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
-        $donnees_service = $bdd->query('SELECT DISTINCT personnel_fbln.service_id, service_fbln.nom AS nom_service FROM personnel_fbln JOIN service_fbln ON personnel_fbln.service_id = service_fbln.id ORDER BY service_fbln.nom');
-
-        while($service=$donnees_service->fetch())
-        {
-
-            $donnees_query = $bdd->prepare('SELECT * FROM personnel_fbln WHERE service_id = ? AND actif = 1 ORDER BY cadre DESC, nom');
-            $donnees_query->execute(array($service['service_id']));
-            echo '<div class="ar_personnel"><table class="ar_personnel"><caption class="ar_personnel">'. $service['nom_service'] . '</caption><tr><th class="ar_personnel">nom</th><th class="ar_personnel">prénom</th><th class="ar_personnel">pseudo</th><th colspan=3 class="ar_personnel">actions</th></tr>';
-
-            while($personnel=$donnees_query->fetch())
-            {
-                echo '<tr';
-
-                if($personnel['cadre'] == '1')
-                {
-                    echo ' class="ar_personnel_cadre"';
+            <section>
+                <?php
+                //Les messages si on vient de modifier un personnel :
+                if (isset($_GET['error'])) {
+                    ?>
+                    <div class="row">
+                        <?php
+                        if ($_GET['error'] == 0) {
+                            ?>
+                            <div class="col-sm-4 col-sm-offset-4">
+                                <div class="alert alert-success">
+                                    <span class="glyphicon glyphicon-ok-sign"></span> Modifications effectuées.
+                                </div>
+                            </div>
+                            <?php
+                        } elseif ($_GET['error'] == 1) {
+                            ?>
+                            <div class="col-sm-4 col-sm-offset-4">
+                                <div class="alert alert-danger">
+                                    <span class="glyphicon glyphicon-remove-sign"></span> Une erreur s'est produite, réessayer.
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <?php
                 }
+                ?>
+                <div class="row">
+                    <?php
+                    while ($service = $donnees_service->fetch()) {
 
-                echo '><td class="ar_personnel">' . $personnel['nom'] . '</td><td class="ar_personnel">' . $personnel['prenom'] . '</td><td class="ar_personnel">' . $personnel['pseudo'] . '</td><td class="ar_personnel"><a href = "ar_modifier_personnel.php?id=' . $personnel['id'] .'" class="ar_personnel">modifier</a></td><td class="ar_personnel"><a href="ar_modif_mdp_personnel.php?id=' . $personnel['id'] . '" class="ar_personnel">mot de passe</a></td><td class="ar_personnel"><a href = "ar_depart_personnel.php?id=' . $personnel['id'] . '" class="ar_personnel">départ</td></tr>';
-            }
+                        $donnees_query = $bdd->prepare('SELECT * FROM personnel_fbln WHERE service_id = ? AND actif = 1 ORDER BY cadre DESC, nom');
+                        $donnees_query->execute(array($service['service_id']));
+                        ?>
 
-            echo '</table></div>';
+                        <div class="col-sm-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <?php echo $service['nom_service']; ?>
+                                </div>
+                                <table class="table table-hover table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th>nom</th>
+                                            <th>prénom</th>
+                                            <th>pseudo</th>
+                                            <th colspan="3">actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        while ($personnel = $donnees_query->fetch()) {
+                                            ?>
+                                            <tr
+                                            <?php
+                                            //Petite mise en valeur si le personnel est un cadre.
+                                            if ($personnel['cadre'] == '1') {
+                                                echo ' class="active"';
+                                            }
+                                            ?>
+                                                >
+                                                <td><?php echo $personnel['nom']; ?></td>
+                                                <td><?php echo $personnel['prenom']; ?></td>
+                                                <td><?php echo $personnel['pseudo']; ?></td>
+                                                <td><a href = "ar_modifier_personnel.php?id=<?php echo $personnel['id']; ?>"><span class="glyphicon glyphicon-cog"></span></a></td>
+                                                <td><a href = "ar_modif_mdp_personnel.php?id=<?php echo $personnel['id']; ?>"><span class="glyphicon glyphicon-lock"></span></a></td>
+                                                <td><a href = "ar_depart_personnel.php?id=<?php echo $personnel['id']; ?>"><span class="glyphicon glyphicon-remove"></span></td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        $donnees_query->closeCursor();
+                                        ?>
 
-            $donnees_query->closeCursor();
-
-        }
-
-        $donnees_service->closeCursor();
-
-    ?>    
-    </div>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    $donnees_service->closeCursor();
+                    ?>
+                </div>
+            </section>
+        </div>
     </body>
 </html>

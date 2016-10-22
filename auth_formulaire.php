@@ -5,13 +5,7 @@
         <title>Bienvenue sur le portail du service j&f:</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-        <style>
-            h1 {
-                border-bottom: 1px solid #e5e5e5;
-                margin-bottom: 20px;
-                padding-bottom: 5px;
-            }
-        </style>
+        <link href="assets/css/design.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
