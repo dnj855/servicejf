@@ -1,7 +1,3 @@
-<?php
-include('auth.php');
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +12,7 @@ include('auth.php');
         <?php include('nav_menu.php') ?>
         <div class="container">
             <header>
-                <h1>boite à idées</h1>
+                <h1>la boite à idées</h1>
             </header>
             <section class="row">
                 <div class="col-md-6 col-md-offset-3">
