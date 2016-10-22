@@ -27,13 +27,14 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a data-target="#" class="dropdown-toggle" data-toggle="dropdown">Bonjour <?php echo $_SESSION['prenom']; ?> <span class="caret"></span></a>
+                    <a data-target="#" class="dropdown-toggle" data-toggle="dropdown">Bonjour <?php echo $_SESSION['prenom']; ?> <span class="badge"><?php echo $mess_nonlus; ?></span> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="auth_modifier_utilisateur.php">Modifier mon compte</a>
                         </li>
-                        <li><a href="mess.php">Messagerie interne <span class="badge"><?php echo $mess_nonlus; ?></span></a></li>
+                        <li><a href="mess.php">Messagerie interne</a></li>
                         <?php
+                        // Affichage du panneau admin
                         if ($_SESSION['admin'] == 1) {
                             ?>
                             <li class="divider"></li>
