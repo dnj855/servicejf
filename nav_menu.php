@@ -38,7 +38,11 @@
                         <li>
                             <a href="auth_modifier_utilisateur.php">Modifier mon compte</a>
                         </li>
-                        <li><a href="mess.php">Messagerie interne</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Messagerie interne</li>
+                        <li><a href="mess_formulaire.php">Ecrire un message</a></li>
+                        <li <?php if (!$mess_nonlus) { ?>class="disabled"<?php } ?>><a href="mess_nonlus.php">Messages non lus <span class="badge"><?php echo $mess_nonlus; ?></span></a></li>
+                        <li><a href="mess_lus.php">Lire les messages</a></li>
                         <?php
                         // Affichage du panneau admin
                         if ($_SESSION['admin'] == 1) {

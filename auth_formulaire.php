@@ -23,7 +23,8 @@
                             <form method="post" action="auth_traitement.php">
                                 <fieldset>
                                     <?php if ($_GET['log'] != 'new') { ?>
-                                        <div class="alert alert-danger">
+                                        <div class="alert alert-danger alert-dismissible">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             <span class="glyphicon glyphicon-remove-sign"></span>
                                             <?php
                                             if ($_GET['log'] == 'no') {
@@ -58,5 +59,9 @@
             </div>
         </div>
     </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>

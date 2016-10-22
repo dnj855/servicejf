@@ -23,7 +23,8 @@ include('auth.php');
                 <?php if ($_GET['error'] == '0') { ?>
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
-                            <div class="alert alert-success">
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <span class="glyphicon glyphicon-ok-circle"></span> Le nouvel invité a bien été sauvegardé.
                             </div>
                         </div>

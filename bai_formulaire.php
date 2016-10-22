@@ -27,7 +27,8 @@ include('auth.php');
                         <div class="panel-body">
                             <?php if (isset($_POST['message'])) { ?>
                                 <div class="col-md-8 col-md-offset-2">
-                                    <div class="alert alert-success">
+                                    <div class="alert alert-success alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                         <span class="glyphicon glyphicon-ok-circle"></span> Message bien reçu.<br/>Promis, on te lit au plus vite !
                                     </div>
                                 </div>

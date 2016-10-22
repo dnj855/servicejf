@@ -49,7 +49,8 @@ $donnees_service = $bdd->query('SELECT DISTINCT personnel_fbln.service_id, servi
                         if ($_GET['error'] == 0) {
                             ?>
                             <div class="col-md-4 col-md-offset-4">
-                                <div class="alert alert-success">
+                                <div class="alert alert-success alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <span class="glyphicon glyphicon-ok-sign"></span> Modifications effectuées.
                                 </div>
                             </div>
@@ -57,7 +58,8 @@ $donnees_service = $bdd->query('SELECT DISTINCT personnel_fbln.service_id, servi
                         } elseif ($_GET['error'] == 1) {
                             ?>
                             <div class="col-md-4 col-md-offset-4">
-                                <div class="alert alert-danger">
+                                <div class="alert alert-danger alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <span class="glyphicon glyphicon-remove-sign"></span> Une erreur s'est produite, réessayer.
                                 </div>
                             </div>
