@@ -14,13 +14,13 @@
                 <h1>le challenge invité</h1>
             </header>
 
-            <section>
+            <section class="row">
                 <nav class="col-md-4">
                     <div class="panel panel-primary">
                         <div class="panel-body">
                             <ul class="nav nav-pills nav-stacked">
-                                <li class="active"><a href="ci.php">Saisie</a></li>
-                                <li><a href="ci_resultats.php">Résultats</a></li>
+                                <li class="active"><a href="ci.php"><span class="glyphicon glyphicon-pencil"></span> Saisie</a></li>
+                                <li><a href="ci_resultats.php"><span class="glyphicon glyphicon-list-alt"></span> Résultats</a></li>
                             </ul>
                         </div>
                     </div>
@@ -39,13 +39,7 @@
                                         <div class="col-md-9">
                                             <select name="identite" id="identite" class="form-control">
                                                 <option value="">---Choisir---</option>
-                                                <?php
-                                                $query = $bdd->query('SELECT prenom, id FROM personnel_fbln WHERE service_id = 1 AND actif = 1 ORDER BY prenom');
-                                                while ($identite = $query->fetch()) {
-                                                    echo '<option value="' . $identite['id'] . '">' . $identite['prenom'] . '</option>';
-                                                }
-                                                $query->closeCursor();
-                                                ?>
+                                                <?php selectUserAvecCadre($bdd, 0, 1); ?>
                                             </select>
                                             <p class="help-block">N'oubliez pas de faire un choix dans la liste.</p>
                                         </div>
@@ -83,13 +77,7 @@
                                         <div class="col-md-9">
                                             <select name="caleur" id="caleur" class="form-control">
                                                 <option value="">---Choisir---</option>
-                                                <?php
-                                                $query = $bdd->query('SELECT prenom, id FROM personnel_fbln WHERE service_id = 1 AND actif = 1 ORDER BY prenom');
-                                                while ($identite = $query->fetch()) {
-                                                    echo '<option value="' . $identite['id'] . '">' . $identite['prenom'] . '</option>';
-                                                }
-                                                $query->closeCursor();
-                                                ?>
+                                                <?php selectUserAvecCadre($bdd, 0, 1); ?>
                                             </select>
                                             <p class="help-block">N'oubliez pas de faire un choix dans la liste.</p>
                                         </div>

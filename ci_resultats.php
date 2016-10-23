@@ -36,8 +36,8 @@ include('auth.php');
                             <div class="panel panel-primary">
                                 <div class="panel-body">
                                     <ul class="nav nav-pills nav-stacked">
-                                        <li><a href="ci.php">Saisie</a></li>
-                                        <li class="active"><a href="ci_resultats.php">Résultats</a></li>
+                                        <li><a href="ci.php"><span class="glyphicon glyphicon-pencil"></span> Saisie</a></li>
+                                        <li class="active"><a href="ci_resultats.php"><span class="glyphicon glyphicon-list-alt"></span> Résultats</a></li>
                                     </ul>
                                 </div>
                             </div>
