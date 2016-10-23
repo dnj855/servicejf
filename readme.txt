@@ -5,7 +5,7 @@ A ce jour, deux jeux existent :
 - le challenge des soirées sport (abrégé css)
 
 Prochains développements du projet :
-- amélioration du design avec le framework Bootstrap
+- présentation améliorée des résultats des challenges
 - refonte de toute l'architecture avec le framework Symfony
 
 Bref, y'a du boulot !
