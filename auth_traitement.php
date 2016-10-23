@@ -19,13 +19,12 @@ if (isset($_SESSION['id'])) { // On vérifie que l'utilisateur n'est pas déjà 
     } else {
 
         if (check_password($_POST['auth_mdp'], $pseudo['mdp'])) { // On vérifie que le mot de passe entré par l'utilisateur correspond bien à celui présent dans la BDD. Si oui, on entre les champs correspondants dans des variables de session.
-            $_SESSION['id'] = $pseudo['id'];
-            $_SESSION['prenom'] = $pseudo['prenom'];
-            $_SESSION['nom'] = $pseudo['nom'];
-            $_SESSION['admin'] = $pseudo['admin'];
-            $_SESSION['service'] = $pseudo['service_id'];
-            $_SESSION['css'] = $pseudo['css'];
-            header('location:auth.php?log=yes');
+            if ($_POST['cookie']) {
+                setcookie('servicejfauth', $pseudo['id'], time() + 2629800);
+            }
+
+            setSessionVariables($bdd, $pseudo['id']);
+            header('location:index.php');
         } else { // Si ce n'est pas le cas, on le renvoie au formulaire d'identification.
             header('location:auth.php?log=no');
         }

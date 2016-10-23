@@ -94,3 +94,15 @@ function getTeams($bdd, $id) {
         "equipe_away" => $equipe_away
     );
 }
+
+function setSessionVariables($bdd, $id) {
+    $query = $bdd->prepare('SELECT * FROM personnel_fbln WHERE id = ?');
+    $query->execute(array($id));
+    $pseudo = $query->fetch();
+    $_SESSION['id'] = $pseudo['id'];
+    $_SESSION['prenom'] = $pseudo['prenom'];
+    $_SESSION['nom'] = $pseudo['nom'];
+    $_SESSION['admin'] = $pseudo['admin'];
+    $_SESSION['service'] = $pseudo['service_id'];
+    $_SESSION['css'] = $pseudo['css'];
+}

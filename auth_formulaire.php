@@ -45,6 +45,11 @@
                                         <label for="auth_mdp" class="sr-only">Votre mot de passe</label>
                                         <input type="password" name="auth_mdp" id="auth_mdp" placeholder="Votre mot de passe" class="form-control">
                                     </div>
+                                    <div class="checkbox text-right">
+                                        <label for="cookie">
+                                            <input type="checkbox" value="1" name="cookie" id="cookie"> Se souvenir de moi
+                                        </label>
+                                    </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-check"></span> Se connecter !</button>
                                     </div>
