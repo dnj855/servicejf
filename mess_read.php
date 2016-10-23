@@ -44,10 +44,10 @@ include ('auth_mess.php'); //Page d'authentification spéciale avec la méthode 
                                         </button>
                                     </div>
                                     <div class="panel-body">
-                                        <?php echo $mess_texte; ?>
+                                        <p><?php echo $mess_texte; ?></p>
                                     </div>
                                     <div class="panel-footer">
-                                        Envoyé le <?php echo $mess_date; ?> par <?php echo $auteur_prenom; ?> <?php echo $auteur_nom; ?>
+                                        <em>Envoyé le <?php echo $mess_date; ?> par <?php echo $auteur_prenom; ?> <?php echo $auteur_nom; ?></em>
                                     </div>
                                 </div>
                             </div>

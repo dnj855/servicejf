@@ -47,7 +47,7 @@ include('auth.php');
                             ?>
                             <div class = "list-group">
                                 <a href = "mess_read.php?id=<?php echo $non_lu['mess_id']; ?>" class="list-group-item">
-                                    <h4 class="list-group-heading"><?php echo $non_lu['mess_titre']; ?></h4>
+                                    <h5 class="list-group-item-heading"><?php echo $non_lu['mess_titre']; ?></h5>
                                     <p class="list-group-item-text">Envoyé le <?php echo $non_lu['date']; ?> par <?php echo $non_lu['prenom']; ?></p>
                                 </a>
                             </div>

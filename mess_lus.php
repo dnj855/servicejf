@@ -62,7 +62,7 @@ include('auth.php');
                                 ?>
                                 <div class="list-group">
                                     <a href="mess_read.php?id=<?php echo $message['mess_id']; ?>" class="list-group-item">
-                                        <h4 class="list-group-item-heading"><?php echo $message['mess_titre']; ?></h4>
+                                        <h5 class="list-group-item-heading"><?php echo $message['mess_titre']; ?></h5>
                                         <p class="list-group-item-text">Envoyé le <?php echo $message['date']; ?> par <?php echo $message['prenom']; ?></p>
                                     </a>
                                 </div>
