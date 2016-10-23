@@ -29,9 +29,16 @@ function check_password($password, $dbhash) {
     return $test_hash === $valid_hash;
 }
 
-function getUserIdentity($bdd, $id) {
+function getUserIdentity($bdd, $id) { // Cette fonction transforme un id utilisateur en ses données perso.
     $query = $bdd->prepare('SELECT * FROM personnel_fbln WHERE id = ?');
     $query->execute(array($id));
     $auteur_message = $query->fetch();
     return $auteur_message;
+}
+
+function cssGetAlreadySetInfos($bdd, $id) { // Cette fonction transforme une id de journée en ses données, si existantes.
+    $query = $bdd->prepare('SELECT * FROM soirees_foot WHERE id_journee = ?');
+    $query->execute(array($id));
+    $infos = $query->fetch();
+    return $infos;
 }
