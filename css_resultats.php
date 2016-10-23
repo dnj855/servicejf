@@ -22,6 +22,16 @@ include('auth.php');
             </header>
 
             <section>
+                <?php if ($_GET['error'] == '0') { ?>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <span class="glyphicon glyphicon-ok-circle"></span> La soirée sport a bien été sauvegardée.
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
                 <div class="row">
                     <?php if ($_SESSION['css'] == '1') { ?>
                         <nav class="col-md-4">
