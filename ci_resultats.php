@@ -55,7 +55,7 @@ include('auth.php');
                                 $nb_total_itws = $bdd->query('SELECT COUNT(*) AS nb_total_itws FROM challenge_invite');
                                 $nb_total = $nb_total_itws->fetch();
                                 ?>
-                                Résultats après <?php echo $nb_total['nb_total_itws'] ?> interviews réalisées
+                                <h4 class="panel-title">Résultats après <?php echo $nb_total['nb_total_itws'] ?> interviews réalisées</h4>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-condensed table-striped">
@@ -124,6 +124,42 @@ include('auth.php');
                             </div>
                             <div class="panel-footer">
                                 Version provisoire de l'affichage des résultats.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h5 class="panel-title">
+                                    <a role="button" data-toggle="collapse" href="#liste_invites">
+                                        Voir la liste complète des invités
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="liste_invites" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        <?php
+                                        $query = $bdd->query('SELECT *, DATE_FORMAT(date_invite, \'le %d/%m/%Y\') AS date FROM challenge_invite ORDER BY date_invite DESC');
+                                        while ($invite = $query->fetch()) {
+                                            if ($invite['direct']) {
+                                                $direct = 'direct';
+                                            } else {
+                                                $direct = 'pad';
+                                            }
+                                            if ($invite['studio']) {
+                                                $studio = 'studio';
+                                            } else {
+                                                $studio = 'téléphone';
+                                            }
+                                            $intervieweur = getUserIdentity($bdd, $invite['identite']);
+                                            echo'<li class = "list-group-item">Invité par ' . $intervieweur['prenom'] . ' ' . $invite['date'] . ' : ' . $invite['nom'] . ' (' . $direct . ' ' . $studio . ')</li>';
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

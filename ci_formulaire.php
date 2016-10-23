@@ -28,7 +28,7 @@
                 <div class="col-md-8">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            Saisir un nouvel invité
+                            <h4 class="panel-title">Saisir un nouvel invité</h4>
                         </div>
                         <div class="panel-body">
                             <form method="post" class="form-horizontal">
