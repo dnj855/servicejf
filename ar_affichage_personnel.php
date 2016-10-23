@@ -22,7 +22,7 @@ $donnees_service = $bdd->query('SELECT DISTINCT personnel_fbln.service_id, servi
         include('nav_menu.php');
         ?>
         <div class="container">
-            <header class="col-sm-12">
+            <header class="page-header">
                 <h1>gestion du personnel</h1>
             </header>
 

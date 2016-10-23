@@ -11,7 +11,7 @@
     <body>
         <?php include('nav_menu.php') ?>
         <div class="container">
-            <header>
+            <header class="page-header">
                 <h1>la boite à idées</h1>
             </header>
             <section class="row">

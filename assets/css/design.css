@@ -4,10 +4,8 @@ body {
     background-repeat:repeat;
 }
 
-h1 {
-    border-bottom: 2px solid #e5e5e5;
-    margin-bottom: 20px;
-    padding-bottom: 5px;
+.page-header {
+    border-bottom: 2px solid #e5e5e5
 }
 
 img.logo {

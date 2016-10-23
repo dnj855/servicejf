@@ -19,7 +19,7 @@ if ($_SESSION['admin'] == 0) {
         include('nav_menu.php');
         ?>
         <div class="container">
-            <header>
+            <header class="page-header">
                 <h1>ajouter un nouveau participant</h1>
             </header>
 

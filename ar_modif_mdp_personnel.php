@@ -23,7 +23,7 @@ $personnel = $query->fetch();
         include('nav_menu.php');
         ?>
         <div class="container">
-            <header>
+            <header class="page-header">
                 <h1>modifier le mot de passe</h1>
             </header>
             <section class="row">

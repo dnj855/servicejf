@@ -16,7 +16,7 @@ include('auth.php');
         <?php include 'nav_menu.php'; ?>
 
         <div class="container">
-            <header>
+            <header class="page-header">
                 <h1>la messagerie interne</h1>
             </header>
 
@@ -37,8 +37,8 @@ include('auth.php');
                             <div class="panel-body">
                                 <ul class="nav nav-pills nav-stacked">
                                     <li><a href="mess_formulaire.php"><span class="glyphicon glyphicon-pencil"></span> Ecrire un message</a></li>
-                                    <li<?php if (!$mess_nonlus) { ?> class="disabled"<?php } ?>><a href="mess_nonlus.php"><span class="glyphicon glyphicon-star-empty"></span> Messages non lus</a></li>
-                                    <li class="active"><a href="mess_lus.php"><span class="glyphicon glyphicon-envelope"></span> Lire les messages</a></li>
+                                    <li<?php if (!$mess_nonlus) { ?> class="disabled"<?php } ?>><a href="mess_nonlus.php"><span class="glyphicon glyphicon-envelope"></span> Messages non lus</a></li>
+                                    <li class="active"><a href="mess_lus.php"><span class="glyphicon glyphicon-inbox"></span> Lire les messages</a></li>
                                     <li><a href="index.php"><span class="glyphicon glyphicon-chevron-left"></span> Retour à l'accueil</a></li>
                                 </ul>
                             </div>

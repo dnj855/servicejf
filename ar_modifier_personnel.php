@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
             include('nav_menu.php');
             ?>
             <div class="container">
-                <header>
+                <header class="page-header">
                     <h1>modifier les informations générales</h1>
                 </header>
                 <section class="row">

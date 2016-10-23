@@ -27,7 +27,7 @@ $personnel = $query->fetch();
         include('nav_menu.php');
         ?>
         <div class="container">
-            <header>
+            <header class="page-header">
                 <h1>départ d'un participant</h1>
             </header>
             <section class="row">

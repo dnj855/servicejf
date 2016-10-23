@@ -15,7 +15,7 @@ include('auth.php');
     <body>
         <?php include('nav_menu.php'); ?>
         <div class="container">
-            <header>
+            <header class="page-header">
                 <h1>le challenge invité</h1>
             </header>
 
