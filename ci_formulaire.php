@@ -83,6 +83,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-md-3 control-label" for="date_invite">Date de l'invité :</label>
+                                        <div class="col-md-9">
+                                            <input type="date" name="date_invite" id="date_invite" class="form-control">
+                                            <p class="help-block">Au format jj/mm/aaaa</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <div class="col-md-12">
                                             <button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-ok"></span> Envoyer</button>
                                         </div>

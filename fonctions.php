@@ -4,6 +4,11 @@ function Pourcentage($Nombre, $Total) {
     return round($Nombre * 100 / $Total, 2);
 }
 
+function dateFrtoUs($date) {
+    $newDate = preg_replace('#^([0-9]{2})/([0-9]{2})/([0-9]{4})$#', '$3-$2-$1 00:00:00', $date);
+    return $newDate;
+}
+
 function hash_password($password) {
     // 256 bits random string
     $salt = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
