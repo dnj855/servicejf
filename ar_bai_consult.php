@@ -40,13 +40,11 @@ include('auth_bai.php');
                         $bai = $bdd->query('SELECT auteur_id, message, DATE_FORMAT(date_message, \'le %d/%m/%Y\') AS date_mess FROM messages_bai ORDER BY date_message DESC LIMIT 0,30');
                         while ($messages = $bai->fetch()) {
                             //On va rappatrier le prénom et le nom de l'auteur du message.
-                            $auteur_message = $bdd->prepare('SELECT prenom FROM personnel_fbln WHERE id = ?');
-                            $auteur_message->execute(array($messages['auteur_id']));
-                            $auteur_message = $auteur_message->fetch();
+                            $auteur = getUserIdentity($bdd, $messages['auteur_id']);
                             ?>
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
-                                    <h5 class="list-group-item-heading">Envoyé par <?php echo $auteur_message['prenom']; ?> <small><?php echo $messages['date_mess']; ?></small></h5>
+                                    <h5 class="list-group-item-heading">Envoyé par <?php echo $auteur['prenom']; ?> <small><?php echo $messages['date_mess']; ?></small></h5>
                                     <p class="list-group-item-text"><?php echo nl2br(htmlspecialchars($messages['message'])); ?></p>
                                 </a>
                             </div>

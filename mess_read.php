@@ -6,7 +6,7 @@ include ('auth_mess.php'); //Page d'authentification spéciale avec la méthode 
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Service j&f: - la messagerie interne</title>
+        <title>Service j&f: - messagerie interne</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/design.css" rel="stylesheet" type="text/css" />

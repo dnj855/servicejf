@@ -19,14 +19,12 @@ $mess_titre = $query['titre'];
 $mess_texte = nl2br(htmlspecialchars($query['message']));
 $mess_date = $query['date_message'];
 
-//On récupère l'identité de l'auteur dans la table correspondante.
+//On récupère l'identité grâce à la fonction idoine.
 
-$query = $bdd->prepare('SELECT prenom, nom FROM personnel_fbln WHERE id = ?');
-$query->execute(array($auteur_id));
-$query = $query->fetch();
+$auteur = getUserIdentity($bdd, $auteur_id);
 
-$auteur_prenom = $query['prenom'];
-$auteur_nom = $query['nom'];
+$auteur_prenom = $auteur['prenom'];
+$auteur_nom = $auteur['nom'];
 
 
 //Si quelqu'un tombe sur la page par hasard, sans avoir de message à lire, ou s'il n'a pas le droit de le lire, on le redirige.

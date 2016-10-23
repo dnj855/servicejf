@@ -29,4 +29,9 @@ function check_password($password, $dbhash) {
     return $test_hash === $valid_hash;
 }
 
-?>
+function getUserIdentity($bdd, $id) {
+    $query = $bdd->prepare('SELECT * FROM personnel_fbln WHERE id = ?');
+    $query->execute(array($id));
+    $auteur_message = $query->fetch();
+    return $auteur_message;
+}
