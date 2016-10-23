@@ -2,3 +2,4 @@ auth_inc_connectdb.php
 requests.sql
 /hash_pass.php
 /essai.php
+/auth_inc_connectdb.remote.php
