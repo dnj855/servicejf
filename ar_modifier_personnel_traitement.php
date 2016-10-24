@@ -1,34 +1,34 @@
 <?php
+
 include('auth.php');
-if($_SESSION['admin'] == 0) {
+if ($_SESSION['admin'] == 0) {
     header('location:index.php');
 }
 
-if (isset($_POST['prenom']) AND isset($_POST['nom']) AND isset($_POST['service']) AND isset($_POST['pseudo']) AND isset($_POST['cadre']) AND isset($_POST['id']))
+if (isset($_POST['prenom']) AND isset($_POST['nom']) AND isset($_POST['service']) AND isset($_POST['pseudo']) AND isset($_POST['cadre']) AND isset($_POST['id'])) {
 
-{
-
-	$prenom = htmlspecialchars($_POST['prenom']);
-	$nom = htmlspecialchars($_POST['nom']);
-	$pseudo = htmlspecialchars($_POST['pseudo']);
+    $prenom = htmlspecialchars($_POST['prenom']);
+    $nom = htmlspecialchars($_POST['nom']);
+    $pseudo = htmlspecialchars($_POST['pseudo']);
     $req = $bdd->prepare('UPDATE personnel_fbln SET nom = :nom, prenom = :prenom, pseudo = :pseudo, cadre = :cadre, service_id = :service, admin = :admin, css = :css WHERE id = :id');
     $req->execute(array(
-    	'nom' => $nom,
-    	'prenom' => $prenom,
-    	'pseudo' => $pseudo,
-    	'cadre' => $_POST['cadre'],
-    	'service' => $_POST['service'],
-    	'id' => $_POST['id'],
+        'nom' => $nom,
+        'prenom' => $prenom,
+        'pseudo' => $pseudo,
+        'cadre' => $_POST['cadre'],
+        'service' => $_POST['service'],
+        'id' => $_POST['id'],
         'css' => $_POST['css'],
         'admin' => $_POST['admin']
-    	));
+    ));
 
     header('Location: ar_affichage_personnel.php?error=0');
 
+    if ($_POST['service'] == 1) { //Si l'utilisateur participe au ci, il faut l'inscrire dans la base des points du ci.
+        $query = $bdd->prepare('INSERT INTO challenge_invite_points (id_intervieweur) VALUES (?)');
+        $query->execute(array($_POST['id']));
+    }
+} else {
+    header('Location: ar_affichage_personnel.php?error=1');
 }
-else
-{
-	header('Location: ar_affichage_personnel.php?error=1');
-}
-
 ?>
