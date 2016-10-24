@@ -169,6 +169,11 @@ function getCiResults($bdd, $id = '') {
         $ds_calees = $ds_calees->fetch();
         $ds_calees = $ds_calees['ds_calees'];
 
+        $pts = $bdd->prepare('SELECT pts FROM challenge_invite_points WHERE id_intervieweur = ?');
+        $pts->execute(array($id));
+        $pts = $pts->fetch();
+        $pts = $pts['pts'];
+
         $resultats[$id] = array(
             'prenom_intervieweur' => $prenom_intervieweur,
             'total' => $total,
@@ -179,7 +184,8 @@ function getCiResults($bdd, $id = '') {
             'ps_2pts' => $ps_2pts,
             'ps_3pts' => $ps_3pts,
             'total_calees' => $total_calees,
-            'ds_calees' => $ds_calees
+            'ds_calees' => $ds_calees,
+            'pts' => $pts
         );
     }
     return $resultats;
@@ -212,4 +218,9 @@ function updateCiResults($bdd) {
             'id' => $id
         ));
     }
+}
+
+function ratio($valeur, $total) {
+    $resultat = $valeur / $total;
+    return $resultat;
 }
