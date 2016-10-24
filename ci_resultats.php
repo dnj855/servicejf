@@ -50,18 +50,18 @@ include('auth.php');
                     ?>">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <?php
-                                // On calcule d'abord le nombre total d'interviews qui ont été réalisées.
-                                $nb_total_itws = $bdd->query('SELECT COUNT(*) AS nb_total_itws FROM challenge_invite');
-                                $nb_total = $nb_total_itws->fetch();
-                                ?>
-                                <h4 class="panel-title">Résultats après <?php echo $nb_total['nb_total_itws'] ?> interviews réalisées</h4>
+                                <h4 class="panel-title">Classement provisoire après <?php
+                                    $query = $bdd->query('SELECT COUNT(*) AS nb_total FROM challenge_invite');
+                                    $nb_total = $query->fetch();
+                                    echo $nb_total['nb_total'];
+                                    ?> interviews réalisées</h4>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-condensed table-striped">
                                     <thead>
                                         <tr>
                                             <th></th>
+                                            <th>Points</th>
                                             <th>Nombre d'interviews</th>
                                             <th>Direct studio</th>
                                             <th>Direct téléphone</th>
@@ -71,52 +71,26 @@ include('auth.php');
                                     </thead>
                                     <tbody>
                                         <?php
-                                        // Ensuite, on regarde qui a réalisé des interviews.
-                                        $query = $bdd->query('SELECT DISTINCT personnel_fbln.id AS itw_id, prenom FROM challenge_invite JOIN personnel_fbln ON personnel_fbln.id = challenge_invite.identite');
-                                        // Pour chaque intervieweur existant, on lance une boucle.
-                                        while ($intervieweur = $query->fetch()) {
-                                            $id_intervieweur = $intervieweur['itw_id']; // On stocke l'id de l'intervieweur en question dans une variable.
-                                            echo '<tr><td>' . $intervieweur['prenom'] . '</td>';
+                                        updateCiResults($bdd);
+                                        $query = $bdd->query('SELECT id_intervieweur, pts FROM challenge_invite_points WHERE pts IS NOT NULL ORDER BY pts DESC');
 
-                                            // S'ensuivent toute une série de requêtes pour établir les différentes possibilités d'interviews.
-                                            $total = $bdd->prepare('SELECT COUNT(*) AS total FROM challenge_invite WHERE identite = ?');
-                                            $total->execute(array($id_intervieweur));
-                                            $total = $total->fetch();
-                                            $total = $total['total'];
+                                        while ($classement = $query->fetch()) {
+                                            $id = $classement['id_intervieweur'];
+                                            $identite = getUserIdentity($bdd, $id);
+                                            $resultats = getCiResults($bdd, $id);
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $identite['prenom']; ?></td>
+                                                <td><?php echo number_format($classement['pts']); ?></td>
+                                                <td><?php echo $resultats[$id]['total']; ?></td>
+                                                <td><?php echo Pourcentage($resultats[$id]['direct_studio'], $resultats[$id]['total']); ?> %</td>
+                                                <td><?php echo Pourcentage($resultats[$id]['direct_telephone'], $resultats[$id]['total']); ?> %</td>
+                                                <td><?php echo Pourcentage($resultats[$id]['pad_studio'], $resultats[$id]['total']); ?> %</td>
+                                                <td><?php echo Pourcentage($resultats[$id]['pad_telephone'], $resultats[$id]['total']); ?> %</td>
+                                            </tr>
 
-                                            $ds = $bdd->prepare('SELECT COUNT(*) AS ds FROM challenge_invite WHERE direct = 1 AND studio = 1 AND identite = ?');
-                                            $ds->execute(array($id_intervieweur));
-                                            $ds = $ds->fetch();
-                                            $ds = $ds['ds'];
-                                            $ds = Pourcentage($ds, $total);
-
-                                            $dt = $bdd->prepare('SELECT COUNT(*) AS dt FROM challenge_invite WHERE direct = 1 AND studio = 0 AND identite = ?');
-                                            $dt->execute(array($id_intervieweur));
-                                            $dt = $dt->fetch();
-                                            $dt = $dt['dt'];
-                                            $dt = Pourcentage($dt, $total);
-
-                                            $ps = $bdd->prepare('SELECT COUNT(*) AS ps FROM challenge_invite WHERE direct = 0 AND studio = 1 AND identite = ?');
-                                            $ps->execute(array($id_intervieweur));
-                                            $ps = $ps->fetch();
-                                            $ps = $ps['ps'];
-                                            $ps = Pourcentage($ps, $total);
-
-                                            $pt = $bdd->prepare('SELECT COUNT(*) AS pt FROM challenge_invite WHERE direct = 0 AND studio = 0 AND identite = ?');
-                                            $pt->execute(array($id_intervieweur));
-                                            $pt = $pt->fetch();
-                                            $pt = $pt['pt'];
-                                            $pt = Pourcentage($pt, $total);
-
-                                            // Et ensuite on affiche les données.
-                                            echo '<td>' . $total . '</td>';
-                                            echo '<td>' . $ds . '%</td>';
-                                            echo '<td>' . $dt . '%</td>';
-                                            echo '<td>' . $ps . '%</td>';
-                                            echo '<td>' . $pt . '%</td></tr>';
+                                            <?php
                                         }
-
-                                        $query->closeCursor();
                                         ?>
 
                                     </tbody>
