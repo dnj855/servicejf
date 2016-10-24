@@ -24,8 +24,15 @@ if ($_SESSION['admin'] == 0) {
             'css' => $_POST['css'],
             'admin' => $_POST['admin'],
         ));
-
         $ajout_personnel->closeCursor();
+
+        if ($_POST['service'] == 1) { //Si l'utilisateur participe au ci, il faut l'inscrire dans la base des points du ci.
+            $query = $bdd->query('SELECT MAX(id) AS id FROM personnel_fbln'); // C'est forcément l'utilisateur le plus récent.
+            $id = $query->fetch();
+            $query->closeCursor();
+            $query = $bdd->prepare('INSERT INTO challenge_invite_points (id_intervieweur) VALUES (?)');
+            $query->execute(array($id['id']));
+        }
     }
 
     header('Location:ar_affichage_personnel.php?error=0');
