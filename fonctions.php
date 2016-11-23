@@ -105,6 +105,7 @@ function setSessionVariables($bdd, $id) {
     $_SESSION['admin'] = $pseudo['admin'];
     $_SESSION['service'] = $pseudo['service_id'];
     $_SESSION['css'] = $pseudo['css'];
+    $_SESSION['cdrb'] = $pseudo['cdrb'];
 }
 
 function getCiResults($bdd, $id = '') {
@@ -223,4 +224,10 @@ function updateCiResults($bdd) {
 function ratio($valeur, $total) {
     $resultat = $valeur / $total;
     return $resultat;
+}
+
+function getCdrb($bdd) {
+    $query = $bdd->query('SELECT * FROM cdrb ORDER BY id');
+    $pronostics = $query->fetchAll();
+    return $pronostics;
 }

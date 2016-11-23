@@ -31,7 +31,7 @@ include('auth.php');
                     <div class="col-sm-5 col-sm-offset-1 text-right">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                Le challenge de l'invité
+                                <h4 class="panel-title">Le challenge de l'invité</h4>
                             </div>
                             <div class="panel-body">
                                 Direct ou PAD ? Studio ou téléphone ?<br />Le challenge de l'invité est le point fondateur du service j&f:
@@ -51,7 +51,7 @@ include('auth.php');
                     <div class="col-sm-5 text-left">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                Le challenge des soirées sport
+                                <h4 class="panel-title">Le challenge des soirées sport</h4>
                             </div>
                             <div class="panel-body">
                                 Sur proposition du président d'honneur, voyons quel technicien porte le plus chance au FC Metz.
@@ -73,7 +73,7 @@ include('auth.php');
                     <div class="col-sm-5 col-sm-offset-1 text-right">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                Une boite à idées
+                                <h4 class="panel-title">Une boite à idées</h4>
                             </div>
                             <div class="panel-body">
                                 Toujours à l'écoute, le service j&f: vous propose de lui donner vos meilleures idées de jeux et de festivités.
@@ -81,6 +81,28 @@ include('auth.php');
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <a href="bai.php">Cliquez ici, tout simplement</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 text-left">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Le challenge du derby lorrain</h4>
+                            </div>
+                            <div class="panel-body">
+                                Alors que certains tentent de lui trouver un nom, le service j&f: vous propose plutôt de lui donner un score. Allez, à vos pronostics !
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="cdrb.php"><?php
+                                        if ($_SESSION['cdrb'] == 0) {
+                                            echo "Clique ici pour tenter ta chance";
+                                        } else {
+                                            echo "Tu as déjà participé. Voir les autres pronostics";
+                                        }
+                                        ?>
+                                    </a>
                                 </li>
                             </ul>
                         </div>

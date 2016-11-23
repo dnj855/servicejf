@@ -29,6 +29,21 @@
                         <li><a href="css_resultats.php">Consulter les résultats provisoires</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Challenge du derby lorrain <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="cdrb.php">
+                                <?php
+                                if ($_SESSION['cdrb'] == 0) {
+                                    echo "Clique ici pour tenter ta chance";
+                                } else {
+                                    echo "Tu as déjà participé. Voir les autres pronostics";
+                                }
+                                ?>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li> <a href="bai.php">Boite à idées</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

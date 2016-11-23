@@ -12,7 +12,7 @@ if ($_SESSION['admin'] == 0) {
         $mdp = htmlspecialchars($_POST['mdp']);
         $_POST['service'] = (int) $_POST['service'];
 
-        $ajout_personnel = $bdd->prepare('INSERT INTO personnel_fbln (nom, prenom, service_id, pseudo, cadre, css, mdp, admin, actif) VALUES (:nom, :prenom, :service, :pseudo, :cadre, :css, :mdp, :admin, 1)');
+        $ajout_personnel = $bdd->prepare('INSERT INTO personnel_fbln (nom, prenom, service_id, pseudo, cadre, css, mdp, admin, actif, cdrb) VALUES (:nom, :prenom, :service, :pseudo, :cadre, :css, :mdp, :admin, 1, 0)');
 
         $ajout_personnel->execute(array(
             'nom' => $nom,
