@@ -91,7 +91,7 @@ include('auth.php');
                                 <h4 class="panel-title">Le challenge du derby lorrain</h4>
                             </div>
                             <div class="panel-body">
-                                Alors que certains tentent de lui trouver un nom, le service j&f: vous propose plutôt de lui donner un score. Allez, à vos pronostics !
+                                Alors que certains tentent de lui trouver un nom, le service j&f: vous propose plutôt de lui donner un score.<br/>Allez, à vos pronostics !
                             </div>
                             <ul class="list-group">
                                 <li class="list-group-item">

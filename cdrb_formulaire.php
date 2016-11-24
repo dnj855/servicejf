@@ -40,7 +40,7 @@
                                     </form>
                                 </div>
                                 <div class="panel-footer">
-                                    Attention, toute validation est définitive. Vérifiez bien votre pronostic avant de cliquer.
+                                    Attention, toute validation est définitive. Vérifie bien ton pronostic avant de cliquer.
                                 </div>
                             </div>
                         </div>
