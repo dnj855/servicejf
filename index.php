@@ -91,17 +91,11 @@ include('auth.php');
                                 <h4 class="panel-title">Le challenge du derby lorrain</h4>
                             </div>
                             <div class="panel-body">
-                                Alors que certains tentent de lui trouver un nom, le service j&f: vous propose plutôt de lui donner un score.<br/>Allez, à vos pronostics !
+                                Alors que certains tentent de lui trouver un nom, le service j&f: vous propose plutôt de lui donner un score.
                             </div>
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <a href="cdrb.php"><?php
-                                        if ($_SESSION['cdrb'] == 0) {
-                                            echo "Clique ici pour tenter ta chance";
-                                        } else {
-                                            echo "Tu as déjà participé. Voir les autres pronostics";
-                                        }
-                                        ?>
+                                    <a href="cdrb.php">Trop tard pour jouer ! Voir les pronos des autres
                                     </a>
                                 </li>
                             </ul>

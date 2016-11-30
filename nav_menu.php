@@ -33,13 +33,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Challenge du derby lorrain <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="cdrb.php">
-                                <?php
-                                if ($_SESSION['cdrb'] == 0) {
-                                    echo "Clique ici pour tenter ta chance";
-                                } else {
-                                    echo "Tu as déjà participé. Voir les autres pronostics";
-                                }
-                                ?>
+                                Trop tard pour jouer ! Voir les pronos des autres
                             </a>
                         </li>
                     </ul>
