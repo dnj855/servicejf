@@ -231,3 +231,9 @@ function getCdrb($bdd) {
     $pronostics = $query->fetchAll();
     return $pronostics;
 }
+
+function getFg($bdd) {
+    $query = $bdd->query('SELECT id, message, sender, DATE_FORMAT(date_message, \'%d/%m/%Y\') AS date FROM fg WHERE valid = 1 ORDER BY date_message DESC');
+    $punchlines = $query->fetchAll();
+    return $punchlines;
+}

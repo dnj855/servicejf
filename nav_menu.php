@@ -30,11 +30,13 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Challenge du derby lorrain <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Challenge du fichier gnou <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="cdrb.php">
-                                Trop tard pour jouer ! Voir les pronos des autres
-                            </a>
+                        <li>
+                            <a href="fg.php?action=write">Poster une punchline</a>
+                        </li>
+                        <li>
+                            <a href="fg.php?action=read">Lire les punchlines</a>
                         </li>
                     </ul>
                 </li>

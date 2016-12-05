@@ -88,15 +88,17 @@ include('auth.php');
                     <div class="col-sm-5 text-left">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Le challenge du derby lorrain</h4>
+                                <h4 class="panel-title">Le challenge du fichier gnou</h4>
                             </div>
                             <div class="panel-body">
-                                Alors que certains tentent de lui trouver un nom, le service j&f: vous propose plutôt de lui donner un score.
+                                Recensez toutes les punchlines entendues sur la plateforme. A la fin de la saison, nous élirons la meilleure.
                             </div>
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <a href="cdrb.php">Trop tard pour jouer ! Voir les pronos des autres
-                                    </a>
+                                    <a href="fg.php?action=write">Poster une punchline</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="fg.php?action=read">Lire les punchlines</a>
                                 </li>
                             </ul>
                         </div>
