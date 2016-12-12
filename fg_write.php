@@ -11,6 +11,7 @@
         <div class="form-group">
             <label for="date_message">La date à laquelle la punchline a été prononcée</label>
             <input type="date" name="date_message" id="date_message" class="form-control">
+            <span class="help-block">Au format jj/mm/aaaa</span>
         </div>
         <input type="hidden" name="sender_id" value="<?php echo $_SESSION['id']; ?>">
         <button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-check"></span> Envoyer</button>
