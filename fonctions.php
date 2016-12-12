@@ -232,8 +232,16 @@ function getCdrb($bdd) {
     return $pronostics;
 }
 
-function getFg($bdd) {
-    $query = $bdd->query('SELECT id, message, sender, DATE_FORMAT(date_message, \'%d/%m/%Y\') AS date FROM fg WHERE valid = 1 ORDER BY date_message DESC');
-    $punchlines = $query->fetchAll();
+function getFg($bdd, $id = '') {
+    if ($id) {
+        $query = $bdd->prepare('SELECT message, id FROM fg WHERE id = :id');
+        $query->execute(array(
+            'id' => $id
+        ));
+        $punchlines = $query->fetch();
+    } else {
+        $query = $bdd->query('SELECT id, message, sender, DATE_FORMAT(date_message, \'%d/%m/%Y\') AS date FROM fg WHERE valid = 1 ORDER BY date_message DESC');
+        $punchlines = $query->fetchAll();
+    }
     return $punchlines;
 }

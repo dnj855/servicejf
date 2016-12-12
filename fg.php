@@ -35,7 +35,7 @@ if (!$_GET) {
                                 }
                                 ?>><a href="fg.php?action=write"><span class="glyphicon glyphicon-pencil"></span> Poster une punchline</a></li>
                                 <li <?php
-                                if ($_GET['action'] == 'read') {
+                                if ($_GET['action'] == 'read' || $_GET['action'] == 'vote') {
                                     echo 'class="active"';
                                 }
                                 ?>><a href="fg.php?action=read"><span class="glyphicon glyphicon-list-alt"></span> Lire les punchlines</a></li>
@@ -50,6 +50,8 @@ if (!$_GET) {
                             include ('fg_write.php');
                         } elseif ($_GET['action'] == 'read') {
                             include ('fg_read.php');
+                        } elseif ($_GET['action'] == 'vote') {
+                            include ('fg_vote.php');
                         } else {
                             echo 'Erreur 404';
                         }
