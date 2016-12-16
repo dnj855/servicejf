@@ -24,6 +24,19 @@ if (!$_GET) {
                 <h1>le challenge du fichier gnou</h1>
             </header>
 
+            <?php if ($_SESSION['message']) { ?>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <?php echo $_SESSION['message'];
+                            unset($_SESSION['message']);
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            <?php }
+            ?>
             <div class="row">
                 <nav class="col-md-4">
                     <div class="panel panel-primary">
@@ -38,25 +51,23 @@ if (!$_GET) {
                                 if ($_GET['action'] == 'read' || $_GET['action'] == 'vote') {
                                     echo 'class="active"';
                                 }
-                                ?>><a href="fg.php?action=read"><span class="glyphicon glyphicon-list-alt"></span> Lire les punchlines</a></li>
+                                ?>><a href="fg.php?action=read&month=<?php echo $now->format('m'); ?>"><span class="glyphicon glyphicon-list-alt"></span> Lire les punchlines</a></li>
                             </ul>
                         </div>
                     </div>
                 </nav>
                 <section class="col-md-8">
-                    <div class="panel panel-primary">
-                        <?php
-                        if ($_GET['action'] == 'write') {
-                            include ('fg_write.php');
-                        } elseif ($_GET['action'] == 'read') {
-                            include ('fg_read.php');
-                        } elseif ($_GET['action'] == 'vote') {
-                            include ('fg_vote.php');
-                        } else {
-                            echo 'Erreur 404';
-                        }
-                        ?>
-                    </div>
+                    <?php
+                    if ($_GET['action'] == 'write') {
+                        include ('fg_write.php');
+                    } elseif ($_GET['action'] == 'read') {
+                        include ('fg_read.php');
+                    } elseif ($_GET['action'] == 'vote') {
+                        include ('fg_vote.php');
+                    } else {
+                        echo 'Erreur 404';
+                    }
+                    ?>
                 </section>
             </div>
 

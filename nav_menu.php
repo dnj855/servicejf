@@ -36,7 +36,7 @@
                             <a href="fg.php?action=write">Poster une punchline</a>
                         </li>
                         <li>
-                            <a href="fg.php?action=read">Lire les punchlines</a>
+                            <a href="fg.php?action=read&month=<?php echo $now->format('m'); ?>">Lire les punchlines</a>
                         </li>
                     </ul>
                 </li>

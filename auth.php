@@ -3,6 +3,9 @@
 session_start();
 include('auth_inc_connectdb.php');
 include('fonctions.php');
+setlocale(LC_TIME, "fr_FR");
+$mois = array('rien', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre');
+$now = new DateTime();
 
 if (isset($_SESSION['id'])) { // On regarde d'abord si l'utilisateur est déjà loggé. Auquel cas, on continue le chargement de la page.
 // On va récupérer le nombre de messages non lus et lus.

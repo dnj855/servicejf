@@ -98,7 +98,7 @@ include('auth.php');
                                     <a href="fg.php?action=write">Poster une punchline</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="fg.php?action=read">Lire les punchlines</a>
+                                    <a href="fg.php?action=read&month=<?php echo $now->format('m'); ?>">Lire les punchlines</a>
                                 </li>
                             </ul>
                         </div>
