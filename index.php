@@ -73,14 +73,17 @@ include('auth.php');
                     <div class="col-sm-5 col-sm-offset-1 text-right">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Une boite à idées</h4>
+                                <h4 class="panel-title">Le challenge phénoménal handball</h4>
                             </div>
                             <div class="panel-body">
-                                Toujours à l'écoute, le service j&f: vous propose de lui donner vos meilleures idées de jeux et de festivités.
+                                Pendant la durée du mondial de handball masculin en France, le service j&f: vous propose de pronostiquer les matches des Experts.
                             </div>
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <a href="bai.php">Cliquez ici, tout simplement</a>
+                                    <a href="cph.php?action=home">Entrer dans le challenge</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="cph.php?action=reglement">Lire le règlement</a>
                                 </li>
                             </ul>
                         </div>
@@ -99,6 +102,23 @@ include('auth.php');
                                 </li>
                                 <li class="list-group-item">
                                     <a href="fg.php?action=read&month=<?php echo $now->format('m'); ?>">Lire les punchlines</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5 col-sm-offset-1 text-right">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Une boite à idées</h4>
+                            </div>
+                            <div class="panel-body">
+                                Toujours à l'écoute, le service j&f: vous propose de lui donner vos meilleures idées de jeux et de festivités.
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="bai.php">Cliquez ici, tout simplement</a>
                                 </li>
                             </ul>
                         </div>
