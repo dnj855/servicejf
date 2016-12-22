@@ -26,12 +26,12 @@
                     <p class="list-group-item-heading text-center">
                         <?php if (getRemainingVotes($bdd, $_SESSION['id']) > 1) { ?>
                             Il te reste <?php echo getRemainingVotes($bdd, $_SESSION['id']) ?> votes pour ce mois de <?php
-                            echo strftime("%B");
+                            echo $mois[$now->format('m')];
                             ?>. Voici la punchline pour laquelle tu souhaites voter :
                         <?php } elseif (getRemainingVotes($bdd, $_SESSION['id']) == 1) {
                             ?>
                             Il te reste <?php echo getRemainingVotes($bdd, $_SESSION['id']) ?> vote pour ce mois de <?php
-                            echo strftime("%B");
+                            echo $mois[$now->format('m')];
                             ?>. Voici la punchline pour laquelle tu souhaites voter :
                         <?php } else { ?>
                             Tu n'as plus de vote disponible ce mois-ci. Rendez-vous le mois prochain pour pouvoir à nouveau participer.
@@ -51,11 +51,11 @@
                         <p class="list-group-item-text text-center">
                             <a class="btn btn-success" href="fg_vote_traitement.php?id=<?php echo $punchline['id']; ?>">Oui</a>
                         </p>
-                    <?php
+                        <?php
                     }
                 }
                 ?>
             </li>
-<?php } ?>
+        <?php } ?>
     </div>
 </div>
