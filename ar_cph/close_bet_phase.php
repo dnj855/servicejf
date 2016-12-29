@@ -1,5 +1,9 @@
 <?php
 
+if ($_SESSION['admin'] == 0) {
+    header('location:index.php');
+}
+
 if ($_POST) {
     $query = $bdd->prepare('UPDATE cph_games SET bet_open = 0 WHERE game_phase = :id');
     $query->execute(array(

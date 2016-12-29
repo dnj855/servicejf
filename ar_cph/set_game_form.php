@@ -1,3 +1,9 @@
+<?php
+if ($_SESSION['admin'] == 0) {
+    header('location:index.php');
+}
+?>
+
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h4 class="panel-title">Créer une affiche</h4>

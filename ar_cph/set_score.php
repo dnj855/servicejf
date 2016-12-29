@@ -1,5 +1,9 @@
 <?php
 
+if ($_SESSION['admin'] == 0) {
+    header('location:index.php');
+}
+
 if ($_POST) {
     $query = $bdd->prepare('UPDATE cph_games SET score_home = :score_home, score_away = :score_away WHERE id = :id');
     $query->execute(array(
