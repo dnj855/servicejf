@@ -69,6 +69,7 @@
                             <li class="divider"></li>
                             <li class="dropdown-header">Administration du site</li>
                             <li><a href="ar_affichage_personnel.php">Gestion du personnel</a></li>
+                            <li><a href="ar_cph.php">Gestion du challenge phénoménal handball</a></li>
                             <li><a href="ar_bai_consult.php">Messages de la boite à idées</a></li>
                             <?php
                         }

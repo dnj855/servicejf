@@ -35,7 +35,7 @@
                 <nav class="col-sm-12">
                     <div class="panel panel-primary">
                         <div class="panel-body">
-                            <ul class="nav nav-tabs nav-justified">
+                            <ul class="nav nav-pills nav-justified">
                                 <li <?php
                                 if ($_GET['action'] == 'home') {
                                     echo 'class="active"';
