@@ -22,8 +22,8 @@ if ($_SESSION['admin'] == 0) {
                     $score_home = getCphGamesScore($bdd, $game['id'], 1);
                     $score_away = getCphGamesScore($bdd, $game['id'], 0);
                     ?>
-                    <li class="list-group-item text-center">
-                        <form method="post" class="form-inline">
+                    <li class="list-group-item">
+                        <form method="post">
                             <div class='form-group<?php
                             if ($_SESSION['alert'][$game['id']]) {
                                 echo ' has-success';
@@ -32,16 +32,15 @@ if ($_SESSION['admin'] == 0) {
                                 <label class='sr-only' for='score_home'>Score de l'équipe à domicile</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><?php echo $team_home['team_name']; ?></div>
-                                    <input type="number" class="form-control" id='score_home' name='score_home' placeholder="<?php
+                                    <input type="number" class="form-control" id='score_home' name='score_home' <?php
                                     if (!empty($score_home)) {
-                                        echo $score_home;
+                                        echo 'value="' . $score_home . '"';
                                     } else {
-                                        echo 'Entrer le score';
+                                        echo 'placeholder="Entrer le score"';
                                     }
-                                    ?>">
+                                    ?>>
                                 </div>
                             </div>
-                            -
                             <div class='form-group<?php
                             if ($_SESSION['alert'][$game['id']]) {
                                 echo ' has-success';
@@ -49,18 +48,44 @@ if ($_SESSION['admin'] == 0) {
                             ?>'>
                                 <label class='sr-only' for='score_away'>Score de l'équipe à l'extérieur</label>
                                 <div class='input-group'>
-                                    <input type="number" class="form-control" id='score_away' name='score_away' placeholder="<?php
-                                    if (!empty($score_away)) {
-                                        echo $score_away;
-                                    } else {
-                                        echo 'Entrer le score';
-                                    }
-                                    ?>">
                                     <div class="input-group-addon"><?php echo $team_away['team_name']; ?></div>
+                                    <input type="number" class="form-control" id='score_away' name='score_away' <?php
+                                    if (!empty($score_away)) {
+                                        echo 'value="' . $score_away . '"';
+                                    } else {
+                                        echo 'placeholder="Entrer le score"';
+                                    }
+                                    ?>>
                                 </div>
                             </div>
-                            <input type="hidden" name='game_id' value='<?php echo $game['id']; ?>'>
-                            <button class="btn btn-primary" type="submit">Enregistrer</button>
+                            <?php if (!$phase['draw'] && $score_home == $score_away && $score_home) { ?>
+                                <div class='form-group<?php
+                                if ($_SESSION['alert'][$game['id']]) {
+                                    echo ' has-success';
+                                }
+                                ?>'>
+                                    <label for="winner" class="sr-only">Vainqueur (en cas de match nul)</label>
+
+                                    <?php
+                                    if ($game['winner']) {
+                                        $winner = getCphTeams($bdd, $game['winner'])
+                                        ?>
+                                        <strong>Vainqueur :</strong> <?php
+                                        echo $winner['team_name'];
+                                    } else {
+                                        ?>
+                                        <select name="winner" class="form-control">
+                                            <option value=''>---Vainqueur---</option>
+                                            <option value="<?php echo $team_home['id']; ?>"><?php echo $team_home['team_name']; ?></option>
+                                            <option value="<?php echo $team_away['id']; ?>"><?php echo $team_away['team_name']; ?></option>
+                                        </select>
+                                    <?php } ?>
+                                </div>
+                            <?php } ?>
+                            <div class="form-group text-right">
+                                <input type="hidden" name='game_id' value='<?php echo $game['id']; ?>'>
+                                <button class="btn btn-primary" type="submit">Enregistrer</button>
+                            </div>
                         </form>
                     </li>
                 <?php }

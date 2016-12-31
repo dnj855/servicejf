@@ -2,7 +2,11 @@
 
 session_start();
 include('auth_inc_connectdb.php');
-include('fonctions.php');
+include('functions/main.php');
+include('functions/css.php');
+include('functions/fg.php');
+include('functions/ci.php');
+include('functions/cph.php');
 setlocale(LC_TIME, "fr_FR");
 $mois = array('rien', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre');
 $now = new DateTime();

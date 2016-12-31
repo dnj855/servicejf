@@ -1,7 +1,11 @@
 <?php
 
 session_start();
-include('fonctions.php');
+include('functions/main.php');
+include('functions/css.php');
+include('functions/fg.php');
+include('functions/ci.php');
+include('functions/cph.php');
 
 //Dans cette page, on va d'abord se connecter à la BDD pour mettre à jour, si besoin, le nombre de messages non-lus.
 //Et on en profite pour cherche les infos dont on a besoin.

@@ -36,22 +36,30 @@
                     <div class="panel panel-primary">
                         <div class="panel-body">
                             <ul class="nav nav-pills nav-justified">
-                                <li <?php
-                                if ($_GET['action'] == 'home') {
-                                    echo 'class="active"';
-                                }
-                                ?>><a href="cph.php?action=home"><span class="glyphicon glyphicon-th-list"></span> Classement provisoire</a></li>
-                                <li <?php
-                                if ($_GET['action'] == 'set_bet') {
-                                    echo 'class="active"';
-                                }
-                                ?>><a href="cph.php?action=set_bet"><span class="glyphicon glyphicon-pencil"></span> Enregistrer ses pronostics</a></li>
-                                <li <?php
-                                if ($_GET['action'] == 'view_bet') {
-                                    echo 'class="active"';
-                                }
-                                ?>><a href="cph.php?action=view_bet"><span class="glyphicon glyphicon-eye-open"></span> Voir tous les pronostics</a></li>
-
+                                <?php if (checkCphRegistration($bdd, $_SESSION['id']) || $_POST['checked_final_bet']) { ?>
+                                    <li <?php
+                                    if ($_GET['action'] == 'home') {
+                                        echo 'class="active"';
+                                    }
+                                    ?>><a href="cph.php?action=home"><span class="glyphicon glyphicon-th-list"></span> Classement provisoire</a></li>
+                                    <li <?php
+                                    if ($_GET['action'] == 'set_bet') {
+                                        echo 'class="active"';
+                                    }
+                                    ?>><a href="cph.php?action=set_bet"><span class="glyphicon glyphicon-pencil"></span> Enregistrer ses pronostics</a></li>
+                                    <li <?php
+                                    if ($_GET['action'] == 'view_bet') {
+                                        echo 'class="active"';
+                                    }
+                                    ?>><a href="cph.php?action=view_bet"><span class="glyphicon glyphicon-eye-open"></span> Voir tous les pronostics</a></li>
+                                    <?php } else {
+                                        ?>
+                                    <li <?php
+                                    if ($_GET['action'] == 'home') {
+                                        echo 'class="active"';
+                                    }
+                                    ?>><a href="cph.php?action=home"><span class="glyphicon glyphicon-pencil"></span> Pronostiquer le vainqueur final</a></li>
+                                    <?php } ?>
                                 <li <?php
                                 if ($_GET['action'] == 'reglement') {
                                     echo 'class="active"';
@@ -61,12 +69,14 @@
                         </div>
                     </div>
                 </nav>
-                <section class="col-md-8">
+                <section class="col-sm-12">
                     <?php
                     if ($_GET['action'] == 'home') {
-                        include ('cph_home.php');
+                        include ('home.php');
                     } elseif ($_GET['action'] == 'reglement') {
-                        include ('cph_reglement.php');
+                        include ('reglement.php');
+                    } elseif ($_GET['action'] == 'view_bet') {
+                        include ('view_bet.php');
                     } else {
                         echo 'Erreur 404';
                     }
