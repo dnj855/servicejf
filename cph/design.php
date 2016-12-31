@@ -69,19 +69,30 @@
                         </div>
                     </div>
                 </nav>
-                <section class="col-sm-12">
-                    <?php
-                    if ($_GET['action'] == 'home') {
-                        include ('home.php');
-                    } elseif ($_GET['action'] == 'reglement') {
-                        include ('reglement.php');
-                    } elseif ($_GET['action'] == 'view_bet') {
-                        include ('view_bet.php');
+
+                <?php
+                if ($_GET['action'] == 'home') {
+                    echo '<section class="col-sm-12">';
+                    include ('home.php');
+                    echo '</section>';
+                } elseif ($_GET['action'] == 'reglement') {
+                    include ('reglement.php');
+                } elseif ($_GET['action'] == 'view_bet') {
+                    if (!checkCphRegistration($bdd, $_SESSION['id'])) {
+                        echo '<section class="col-sm-12"><div class="well"><p class="lead text-center">Tu n\'es pas encore inscrit, cette page ne t\'est donc pas accessible.</p><p class="text-center"><a href="cph.php?action=home">Va pronostiquer le vainqueur final pour commencer.</a></p></div></section>';
                     } else {
-                        echo 'Erreur 404';
+                        include ('view_bet.php');
                     }
-                    ?>
-                </section>
+                } elseif ($_GET['action'] == 'set_bet') {
+                    if (!checkCphRegistration($bdd, $_SESSION['id'])) {
+                        echo '<section class="col-sm-12"><div class="well"><p class="lead text-center">Tu n\'es pas encore inscrit, cette page ne t\'est donc pas accessible.</p><p class="text-center"><a href="cph.php?action=home">Va pronostiquer le vainqueur final pour commencer.</a></p></div></section>';
+                    } else {
+                        include ('set_bet.php');
+                    }
+                } else {
+                    echo 'Erreur 404';
+                }
+                ?>
             </div>
 
 
