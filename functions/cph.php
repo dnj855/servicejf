@@ -108,6 +108,16 @@ function checkIfDrawPhase($bdd, $game_id) {
     }
 }
 
+function checkIfFinalGame($bdd, $game_id) {
+    $game = getCphGame($bdd, $game_id);
+    $phase = getCphPhases($bdd, $game['game_phase']);
+    if ($phase['final']) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 function getCphTeamNames($bdd, $game_id) {
     $team_name = array();
     $query = $bdd->prepare('SELECT t.team_name FROM cph_teams t LEFT JOIN cph_games g ON g.team_home = t.id WHERE g.id = :game_id');
@@ -137,4 +147,101 @@ function getCphFinalBet($bdd, $better_id) {
     ));
     $final_bet = $query->fetch();
     return $final_bet['team'];
+}
+
+function getCphIdFinalBet($bdd, $better_id) {
+    $query = $bdd->prepare('SELECT final_bet FROM cph_final_bet WHERE better_id = :better_id');
+    $query->execute(array(
+        'better_id' => $better_id
+    ));
+    $final_bet = $query->fetch();
+    return $final_bet['final_bet'];
+}
+
+function getCphPlayedGames($bdd) {
+    $query = $bdd->query('SELECT * FROM cph_games WHERE result IS NOT NULL');
+    return $query->fetchAll();
+}
+
+function checkCphPointsByGame($bdd, $game_id, $better_id) {
+    $query = $bdd->prepare('SELECT * FROM cph_points WHERE better_id = :better_id AND game_id = :game_id');
+    $query->execute(array(
+        'better_id' => $better_id,
+        'game_id' => $game_id
+    ));
+    if ($query->fetch()) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+function setCphPointsByGame($bdd, $game_id, $better_id) {
+    $query = $bdd->prepare('INSERT INTO cph_points (better_id, game_id) VALUES (:better_id, :game_id)');
+    $query->execute(array(
+        'game_id' => $game_id,
+        'better_id' => $better_id
+    ));
+    return 1;
+}
+
+function updatePointsByGame($bdd, $game_id, $better_id, $points_resultat, $points_resultat_final, $points_ecart, $points_bon_score) {
+    $query = $bdd->prepare('UPDATE cph_points SET points_resultat = :points_resultat, points_resultat_final = :points_resultat_final, points_ecart = :points_ecart, points_bon_score = :points_bon_score WHERE better_id = :better_id AND game_id = :game_id');
+    $query->execute(array(
+        'points_resultat' => $points_resultat,
+        'points_resultat_final' => $points_resultat_final,
+        'points_ecart' => $points_ecart,
+        'points_bon_score' => $points_bon_score,
+        'better_id' => $better_id,
+        'game_id' => $game_id
+    ));
+    return 1;
+}
+
+function updateCphRanking($bdd) {
+    $betters = getCphAllBetters($bdd);
+    foreach ($betters as $better) { // D'abord on récupère les points inscrits dans chaque domaine.
+        $query = $bdd->prepare('SELECT SUM(points_resultat) AS somme FROM cph_points WHERE better_id = :better_id');
+        $query->execute(array(
+            'better_id' => $better['better_id']
+        ));
+        $temp_points = $query->fetch();
+        $query->closeCursor();
+        $points_resultat = $temp_points['somme'];
+        $query = $bdd->prepare('SELECT SUM(points_resultat_final) AS somme FROM cph_points WHERE better_id = :better_id');
+        $query->execute(array(
+            'better_id' => $better['better_id']
+        ));
+        $temp_points = $query->fetch();
+        $query->closeCursor();
+        $points_resultat_final = $temp_points['somme'];
+        $query = $bdd->prepare('SELECT SUM(points_ecart) AS somme FROM cph_points WHERE better_id = :better_id');
+        $query->execute(array(
+            'better_id' => $better['better_id']
+        ));
+        $temp_points = $query->fetch();
+        $query->closeCursor();
+        $points_ecart = $temp_points['somme'];
+        $query = $bdd->prepare('SELECT SUM(points_bon_score) AS somme FROM cph_points WHERE better_id = :better_id');
+        $query->execute(array(
+            'better_id' => $better['better_id']
+        ));
+        $temp_points = $query->fetch();
+        $query->closeCursor();
+        $points_bon_score = $temp_points['somme'];
+        $query = $bdd->prepare('SELECT SUM(points_final) AS somme FROM cph_points WHERE better_id = :better_id');
+        $query->execute(array(
+            'better_id' => $better['better_id']
+        ));
+        $temp_points = $query->fetch();
+        $query->closeCursor();
+        $points_final = $temp_points['somme'];
+        $score = $points_resultat + $points_resultat_final + $points_ecart + $points_bon_score + $points_final; // On additionne tout.
+        $query = $bdd->prepare('UPDATE cph_score SET score = :score WHERE better_id = :better_id');
+        $query->execute(array(
+            'score' => $score,
+            'better_id' => $better['better_id']
+        ));
+    }
+    return 1;
 }

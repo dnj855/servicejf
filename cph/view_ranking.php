@@ -24,7 +24,7 @@ if (!checkCphRegistration($bdd, $_SESSION['id'])) {
                         Nom
                     </th>
                     <th>
-                        Score
+                        Points
                     </th>
                 </tr>
                 <?php
@@ -34,9 +34,9 @@ if (!checkCphRegistration($bdd, $_SESSION['id'])) {
                     $user = getUserIdentity($bdd, $player['better_id']);
                     ?>
                     <tr<?php
-            if ($player['better_id'] == $_SESSION['id']) {
-                echo ' class="active"';
-            }
+                    if ($player['better_id'] == $_SESSION['id']) {
+                        echo ' class="active"';
+                    }
                     ?>
                         >
                         <td><?php echo $i; ?></td>

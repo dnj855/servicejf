@@ -25,7 +25,7 @@ $phases = getCphPhases($bdd);
                     ?>
                 </tr>
                 <?php
-                $betters = getCphAllBetters($bdd);
+                $betters = getCphRanking($bdd);
                 foreach ($betters as $better) {
                     $better_identity = getUserIdentity($bdd, $better['better_id']);
                     ?>

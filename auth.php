@@ -8,7 +8,19 @@ include('functions/fg.php');
 include('functions/ci.php');
 include('functions/cph.php');
 setlocale(LC_TIME, "fr_FR");
-$mois = array('rien', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre');
+$mois = array(
+    '01' => 'janvier',
+    '02' => 'février',
+    '03' => 'mars',
+    '04' => 'avril',
+    '05' => 'mai',
+    '06' => 'juin',
+    '07' => 'juillet',
+    '08' => 'août',
+    '09' => 'septembre',
+    '10' => 'octobre',
+    '11' => 'novembre',
+    '12' => 'décembre');
 $now = new DateTime();
 
 if (isset($_SESSION['id'])) { // On regarde d'abord si l'utilisateur est déjà loggé. Auquel cas, on continue le chargement de la page.

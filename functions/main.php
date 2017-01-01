@@ -90,3 +90,7 @@ function getCdrb($bdd) {
     $pronostics = $query->fetchAll();
     return $pronostics;
 }
+
+function getEcart($value1, $value2) {
+    return abs($value1 - $value2);
+}
