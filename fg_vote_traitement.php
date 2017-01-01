@@ -12,5 +12,5 @@ if (!isset($_GET['id'])) {
     ));
     $_SESSION['message'] = "Ton vote a bien été pris en compte, merci !";
 
-    header("location:fg.php?action=read&month=" . $now->format('m'));
+    header("location:fg.php?action=read&month=" . $now->format('m') . '&year=' . $now->format('Y'));
 }
