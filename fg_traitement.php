@@ -12,5 +12,5 @@ if (!$_POST) {
         'sender_id' => $_POST['sender_id'],
         'date_message' => $date
     ));
-    header('location:fg.php?action=read');
+    header('location:fg.php?action=read&month=' . $now->format('m') . '&year=' . $now->format('Y'));
 }

@@ -29,7 +29,8 @@ if (!$_GET) {
                     <div class="col-md-6 col-md-offset-3">
                         <div class="alert alert-success alert-dismissible" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <?php echo $_SESSION['message'];
+                            <?php
+                            echo $_SESSION['message'];
                             unset($_SESSION['message']);
                             ?>
                         </div>
@@ -39,24 +40,53 @@ if (!$_GET) {
             ?>
             <div class="row">
                 <nav class="col-md-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-body">
-                            <ul class="nav nav-pills nav-stacked">
-                                <li <?php
-                                if ($_GET['action'] == 'write') {
-                                    echo 'class="active"';
-                                }
-                                ?>><a href="fg.php?action=write"><span class="glyphicon glyphicon-pencil"></span> Poster une punchline</a></li>
-                                <li <?php
-                                if ($_GET['action'] == 'read' || $_GET['action'] == 'vote') {
-                                    echo 'class="active"';
-                                }
-                                ?>><a href="fg.php?action=read&month=<?php echo $now->format('m'); ?>"><span class="glyphicon glyphicon-list-alt"></span> Lire les punchlines</a></li>
-                            </ul>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-body">
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li <?php
+                                        if ($_GET['action'] == 'write') {
+                                            echo 'class="active"';
+                                        }
+                                        ?>><a href="fg.php?action=write"><span class="glyphicon glyphicon-pencil"></span> Poster une punchline</a></li>
+                                        <li <?php
+                                        if ($_GET['action'] == 'read' || $_GET['action'] == 'vote') {
+                                            echo 'class="active"';
+                                        }
+                                        ?>><a href="fg.php?action=read&month=<?php echo $now->format('m'); ?>&year=<?php echo $now->format('Y'); ?>"><span class="glyphicon glyphicon-list-alt"></span> Lire les punchlines</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Les meilleures punchlines des mois précédents</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        <?php
+                                        $best_punchlines = getFgBestPunchlines($bdd);
+                                        foreach ($best_punchlines as $month => $punchline) {
+                                            foreach ($punchline as $id_punchline) {
+                                                $punchline_message = getFg($bdd, $id_punchline);
+                                                ?>
+                                                <li class="list-group-item">
+                                                    <h4 class="list-group-item-heading"><?php echo $month; ?></h4>
+                                                    <p><?php echo nl2br(htmlspecialchars($punchline_message['message'])); ?></p>
+                                                </li>
+
+
+                                                <?php
+                                            }
+                                        }
+                                        ?></ul></div>
+                            </div>
                         </div>
                     </div>
                 </nav>
-                <section class="col-md-8">
+                <section class = "col-md-8">
                     <?php
                     if ($_GET['action'] == 'write') {
                         include ('fg_write.php');

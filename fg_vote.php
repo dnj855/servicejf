@@ -26,12 +26,12 @@
                     <p class="list-group-item-heading text-center">
                         <?php if (getRemainingVotes($bdd, $_SESSION['id']) > 1) { ?>
                             Il te reste <?php echo getRemainingVotes($bdd, $_SESSION['id']) ?> votes pour ce mois de <?php
-                            echo $mois[$now->format('m')];
+                            echo $mois[$now->format('m')] . ' ' . $now->format('Y');
                             ?>. Voici la punchline pour laquelle tu souhaites voter :
                         <?php } elseif (getRemainingVotes($bdd, $_SESSION['id']) == 1) {
                             ?>
                             Il te reste <?php echo getRemainingVotes($bdd, $_SESSION['id']) ?> vote pour ce mois de <?php
-                            echo $mois[$now->format('m')];
+                            echo $mois[$now->format('m')] . ' ' . $now->format('Y');
                             ?>. Voici la punchline pour laquelle tu souhaites voter :
                         <?php } else { ?>
                             Tu n'as plus de vote disponible ce mois-ci. Rendez-vous le mois prochain pour pouvoir à nouveau participer.
