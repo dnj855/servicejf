@@ -1,3 +1,9 @@
+<?php
+if (!$cph_include) {
+    header('location:../index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,7 +42,20 @@
                     <div class="panel panel-primary">
                         <div class="panel-body">
                             <ul class="nav nav-pills nav-justified">
-                                <?php if (checkCphRegistration($bdd, $_SESSION['id']) || $_POST['checked_final_bet']) { ?>
+                                <?php if (!checkCphRegistration($bdd, $_SESSION['id']) && checkCphBegin($bdd)) { // Si le jeu a démarré mais que l'utilisateur n'est pas inscrit. ?>
+                                    <li <?php
+                                    if ($_GET['action'] == 'home') {
+                                        echo 'class="active"';
+                                    }
+                                    ?>><a href="cph.php?action=home"><span class="glyphicon glyphicon-th-list"></span> Classement provisoire</a></li>
+                                    <li <?php
+                                    if ($_GET['action'] == 'view_bet') {
+                                        echo 'class="active"';
+                                    }
+                                    ?>><a href="cph.php?action=view_bet"><span class="glyphicon glyphicon-eye-open"></span> Voir tous les pronostics</a></li>
+                                        <?php
+                                    } elseif (checkCphRegistration($bdd, $_SESSION['id']) || $_POST['checked_final_bet']) { // Si l'utilisateur est inscrit, mais que le jeu n'a pas démarré.
+                                        ?>
                                     <li <?php
                                     if ($_GET['action'] == 'home') {
                                         echo 'class="active"';
@@ -52,7 +71,7 @@
                                         echo 'class="active"';
                                     }
                                     ?>><a href="cph.php?action=view_bet"><span class="glyphicon glyphicon-eye-open"></span> Voir tous les pronostics</a></li>
-                                    <?php } else {
+                                    <?php } else { // Dans les autres cas.
                                         ?>
                                     <li <?php
                                     if ($_GET['action'] == 'home') {
@@ -78,8 +97,8 @@
                 } elseif ($_GET['action'] == 'reglement') {
                     include ('reglement.php');
                 } elseif ($_GET['action'] == 'view_bet') {
-                    if (!checkCphRegistration($bdd, $_SESSION['id'])) {
-                        echo '<section class="col-sm-12"><div class="well"><p class="lead text-center">Tu n\'es pas encore inscrit, cette page ne t\'est donc pas accessible.</p><p class="text-center"><a href="cph.php?action=home">Va pronostiquer le vainqueur final pour commencer.</a></p></div></section>';
+                    if (!checkCphRegistration($bdd, $_SESSION['id']) && !checkCphBegin($bdd)) {
+                        echo '<div class="well"><p class="lead text-center">Tu n\'es pas encore inscrit, cette page ne t\'est donc pas accessible.</p><p class="text-center"><a href="cph.php?action=home">Va pronostiquer le vainqueur final pour commencer.</a></p></div>';
                     } else {
                         include ('view_bet.php');
                     }

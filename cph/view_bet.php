@@ -1,6 +1,6 @@
 <?php
-if (!checkCphRegistration($bdd, $_SESSION['id'])) {
-    echo '<div class="well"><p class="lead text-center">Tu n\'es pas encore inscrit, cette page ne t\'est donc pas accessible.</p><p class="text-center"><a href="cph.php?action=home">Va pronostiquer le vainqueur final pour commencer.</a></p></div>';
+if (!$cph_include) {
+    header('location:../index.php');
 }
 $phases = getCphPhases($bdd);
 ?>

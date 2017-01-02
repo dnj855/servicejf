@@ -1,5 +1,10 @@
 <?php
 
+if (!$cph_include) {
+    header('location:../index.php');
+}
+
+
 if ($_POST) {
     $bet = getCphGamesBet($bdd, $_POST['game_id'], $_POST['better_id']);
     if (!$bet) { // On vérifie d'abord si le match a déjà été pronostiqué. Si ça n'est pas le cas, on crée la ligne dans la bdd.

@@ -1,6 +1,12 @@
 <?php
 
-if (!checkCphRegistration($bdd, $_SESSION['id'])) { // On vérifie si l'utilisateur s'est déjà inscrit au challenge ou non.
+if (!$cph_include) {
+    header('location:../index.php');
+}
+
+if (!checkCphRegistration($bdd, $_SESSION['id']) && checkCphBegin($bdd)) {
+    include('view_ranking.php');
+} elseif (!checkCphRegistration($bdd, $_SESSION['id'])) { // On vérifie si l'utilisateur s'est déjà inscrit au challenge ou non.
     if ($_POST) { // On vérifie si on vient sur la page par le formulaire (POST) ou pas (GET).
         if ($_POST['checked_final_bet']) { // Si on vient de la page de validation du choix, on traite.
             $query = $bdd->prepare('INSERT INTO cph_final_bet (better_id, final_bet) VALUES (:better_id, :final_bet)');

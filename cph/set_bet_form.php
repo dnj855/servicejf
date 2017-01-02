@@ -1,5 +1,10 @@
 <?php
 $phases = getCphPhases($bdd);
+
+if (!$cph_include) {
+    header('location:../index.php');
+}
+
 foreach ($phases as $phase) {
     ?>
     <ul class="list-group">

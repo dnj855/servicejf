@@ -1,3 +1,9 @@
+<?php
+if (!$cph_include) {
+    header('location:../index.php');
+}
+?>
+
 <div class="col-sm-8 col-sm-offset-2">
     <div class="panel panel-primary">
         <div class="panel-body">
