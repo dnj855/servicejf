@@ -91,7 +91,11 @@ if (!$_GET) {
                     if ($_GET['action'] == 'write') {
                         include ('fg_write.php');
                     } elseif ($_GET['action'] == 'read') {
-                        include ('fg_read.php');
+                        if (validateMonth($_GET['month']) && validateYear($_GET['year'])) { // On s'assure juste que les données passées en Get correspondent à des valeurs correctes. Si ce n'est pas le cas, 404 !
+                            include ('fg_read.php');
+                        } else {
+                            include ('fg_404.php');
+                        }
                     } elseif ($_GET['action'] == 'vote') {
                         include ('fg_vote.php');
                     } else {

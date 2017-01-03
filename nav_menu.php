@@ -30,6 +30,14 @@
                     </ul>
                 </li>
                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Challenge phénoménal handball <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="cph.php?action=home">Entrer dans le challenge</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Challenge du fichier gnou <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
@@ -61,6 +69,7 @@
                             <li class="divider"></li>
                             <li class="dropdown-header">Administration du site</li>
                             <li><a href="ar_affichage_personnel.php">Gestion du personnel</a></li>
+                            <li><a href="ar_cph.php">Gestion du challenge phénoménal handball</a></li>
                             <li><a href="ar_bai_consult.php">Messages de la boite à idées</a></li>
                             <?php
                         }

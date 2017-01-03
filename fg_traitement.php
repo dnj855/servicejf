@@ -5,7 +5,12 @@ include('auth.php');
 if (!$_POST) {
     header('location:index.php');
 } else {
-    $date = dateFrtoUs($_POST['date_message']);
+    if (!$_POST['date_message']) {
+        $date = new DateTime();
+        $date = $date->format('Y-m-d 00:00:00');
+    } else {
+        $date = dateFrtoUs($_POST['date_message']);
+    }
     $request = $bdd->prepare('INSERT INTO fg(message, sender, date_message) VALUES(:message, :sender_id, :date_message)');
     $request->execute(array(
         'message' => $_POST['message'],

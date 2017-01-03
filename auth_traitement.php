@@ -2,7 +2,11 @@
 
 session_start();
 include('auth_inc_connectdb.php');
-include('fonctions.php');
+include('functions/main.php');
+include('functions/css.php');
+include('functions/fg.php');
+include('functions/ci.php');
+include('functions/cph.php');
 
 if (isset($_SESSION['id'])) { // On vérifie que l'utilisateur n'est pas déjà logué.
     header('location:index.php');
