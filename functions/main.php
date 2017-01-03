@@ -94,3 +94,11 @@ function getCdrb($bdd) {
 function getEcart($value1, $value2) {
     return abs($value1 - $value2);
 }
+
+function validateMonth($month) {
+    return preg_match('#^0[1-9]$|^1[0-2]$#', $month);
+}
+
+function validateYear($year) {
+    return preg_match('#^201[6-9]$|^202[0-9]$#', $year);
+}
