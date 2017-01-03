@@ -51,7 +51,7 @@ if (!$cph_include) {
                     <dd>Pour un écart de 4 ou 5 : <em>1 point</em>.</dd>
                     <dd>Pour tout écart supérieur : <em>0 point</em>.</dd>
                     <dd>&nbsp;</dd>
-                    <dd class="well text-justify"><em>Prenons l'exemple suivant : la France bat le Brésil sur le score de 23-20. L'écart entre les deux scores est donc de 3.
+                    <dd class="well well-sm text-justify"><em>Prenons l'exemple suivant : la France bat le Brésil sur le score de 23-20. L'écart entre les deux scores est donc de 3.
                             Le participant, lui, a pronostiqué une victoire de la France sur le score de 21-20. Chez lui, l'écart est de 1.
                             L'écart entre les deux écarts est de 2, cela lui permet de remporter 2 points.</em></dd>
                 </dl>

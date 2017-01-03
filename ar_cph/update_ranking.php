@@ -50,11 +50,11 @@ foreach ($games as $game) { // On lance une boucle pour chaque match.
                 setCphPointsByGame($bdd, $game['id'], $better['better_id']);
             }
             $bet = getCphGamesBet($bdd, $game['id'], $better['better_id']); // On irrigue la variable $bet avec le pari de ce parieur sur ce match. On peut maintenant lancer les comparaisons.
-            if ($bet['winner'] == $game['winner']) {
+            if ($bet['result'] == $game['result']) {
                 $points_resultat = 3;
             } // Si on veut conditionner le reste des points au bon résultat, il suffit de bouger cette accolade plus bas.
 
-            if ($bet['result'] == $game['result']) {
+            if ($bet['winner'] == $game['winner']) {
                 $points_resultat_final = 2;
             }
 
@@ -98,11 +98,11 @@ foreach ($games as $game) { // On lance une boucle pour chaque match.
                 setCphPointsByGame($bdd, $game['id'], $better['better_id']);
             }
             $bet = getCphGamesBet($bdd, $game['id'], $better['better_id']); // On irrigue la variable $bet avec le pari de ce parieur sur ce match. On peut maintenant lancer les comparaisons.
-            if ($bet['winner'] == $game['winner']) {
+            if ($bet['result'] == $game['result']) {
                 $points_resultat = 3;
             } // Si on veut conditionner le reste des points au bon résultat, il suffit de bouger cette accolade plus bas.
 
-            if ($bet['result'] == $game['result']) {
+            if ($bet['winner'] == $game['winner']) {
                 $points_resultat_final = 2;
             }
 

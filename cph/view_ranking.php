@@ -42,14 +42,43 @@ if (!checkCphRegistration($bdd, $_SESSION['id']) && !checkCphBegin($bdd)) {
                     }
                     ?>
                         >
-                        <td><?php echo $i; ?></td>
-                        <td><?php echo $user['prenom'] . ' ' . $user['nom']; ?></td>
-                        <td><?php echo $player['score']; ?>
-                    </tr>
-                    <?php
-                    $i++;
-                }
-                ?>
+                        <td><?php
+                            if ($player['score'] == $score_precedent) {
+                                echo '-';
+                            } else {
+                                echo $i;
+                            }
+                            ?></td>
+                        <td><a href="#" data-toggle="modal" data-target="#details<?php echo $player['better_id']; ?>"><?php echo $user['prenom'] . ' ' . $user['nom']; ?></a></td>
+                    <div class="modal fade" id="details<?php echo $player['better_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel"><?php echo $user['prenom'] . ' ' . $user['nom']; ?> : <?php
+                                        echo $player['score'];
+                                        if ($player['score'] > 1) {
+                                            echo ' points';
+                                        } else {
+                                            echo ' point';
+                                        }
+                                        ?></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <?php include('details_user.php'); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <td><?php
+                        echo $player['score'];
+                        $score_precedent = $player['score'];
+                        ?>
+                        </tr>
+                        <?php
+                        $i++;
+                    }
+                    ?>
             </table>
         <?php } ?>
     </div>

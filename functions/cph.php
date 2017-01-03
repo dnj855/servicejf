@@ -176,6 +176,15 @@ function checkCphPointsByGame($bdd, $game_id, $better_id) {
     }
 }
 
+function getCphPointsByGame($bdd, $game_id, $better_id) {
+    $query = $bdd->prepare('SELECT * FROM cph_points WHERE better_id = :better_id AND game_id = :game_id');
+    $query->execute(array(
+        'better_id' => $better_id,
+        'game_id' => $game_id
+    ));
+    return $query->fetch();
+}
+
 function setCphPointsByGame($bdd, $game_id, $better_id) {
     $query = $bdd->prepare('INSERT INTO cph_points (better_id, game_id) VALUES (:better_id, :game_id)');
     $query->execute(array(
@@ -244,4 +253,24 @@ function updateCphRanking($bdd) {
         ));
     }
     return 1;
+}
+
+function checkIfCphFinished($bdd) {
+    $query = $bdd->query('SELECT * FROM cph_points WHERE points_final IS NOT NULL');
+    if ($query->fetch()) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+function getCphFinalWinner($bdd) {
+    $query = $bdd->query('SELECT id FROM cph_game_phase WHERE final = 1');
+    $phase_finale = $query->fetch();
+    $query = $bdd->prepare('SELECT winner FROM cph_games WHERE game_phase = :game_phase');
+    $query->execute(array(
+        'game_phase' => $phase_finale['id']
+    ));
+    $vainqueur = $query->fetch();
+    return getCphTeams($bdd, $vainqueur['winner']);
 }
