@@ -6,6 +6,22 @@ include('functions/css.php');
 include('functions/fg.php');
 include('functions/ci.php');
 include('functions/cph.php');
+setlocale(LC_TIME, "fr_FR");
+$mois = array(
+    '01' => 'janvier',
+    '02' => 'février',
+    '03' => 'mars',
+    '04' => 'avril',
+    '05' => 'mai',
+    '06' => 'juin',
+    '07' => 'juillet',
+    '08' => 'août',
+    '09' => 'septembre',
+    '10' => 'octobre',
+    '11' => 'novembre',
+    '12' => 'décembre');
+$now = new DateTime();
+
 
 //Dans cette page, on va d'abord se connecter à la BDD pour mettre à jour, si besoin, le nombre de messages non-lus.
 //Et on en profite pour cherche les infos dont on a besoin.

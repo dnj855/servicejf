@@ -10,6 +10,7 @@ $donnees_service = $bdd->query('SELECT DISTINCT personnel_fbln.service_id, servi
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Le personnel de FBLN</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />

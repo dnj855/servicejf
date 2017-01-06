@@ -8,6 +8,7 @@ if ($_SESSION['admin'] == 0) {
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Ajouter un nouveau participant au service j&f:</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
