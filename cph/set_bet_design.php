@@ -4,7 +4,7 @@ if (!$cph_include) {
 }
 ?>
 
-<div class="col-sm-4">
+<div class="col-sm-12 col-md-4">
     <div class="panel panel-primary">
         <div class="panel-body">
             <p>
@@ -26,7 +26,7 @@ if (!$cph_include) {
         </div>
     </div>
 </div>
-<div class="col-sm-8">
+<div class="col-sm-12 col-md-8">
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h4 class="panel-title">Enregistrer ses pronostics</h4>
