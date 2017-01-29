@@ -36,7 +36,7 @@ foreach ($games as $game) { // On lance une boucle pour chaque match.
             }
 
             if ($bet['score_home'] == $game['score_home'] && $bet['score_away'] == $game['score_away']) { // Enfin, on regarde si le parieur a le bon score.
-                $points_bon_score = 1;
+                $points_bon_score = 3;
             }
             updatePointsByGame($bdd, $game['id'], $better['better_id'], $points_resultat, $points_resultat_final, $points_ecart, $points_bon_score); // Et on termine en inscrivant les points dans la BDD.
         }
@@ -71,7 +71,7 @@ foreach ($games as $game) { // On lance une boucle pour chaque match.
             }
 
             if ($bet['score_home'] == $game['score_home'] && $bet['score_away'] == $game['score_away']) { // Enfin, on regarde si le parieur a le bon score.
-                $points_bon_score = 1;
+                $points_bon_score = 3;
             }
 
             $final_bet = getCphIdFinalBet($bdd, $better['better_id']); // Les 5 points bonus pour le bon vainqueur final.
@@ -119,7 +119,7 @@ foreach ($games as $game) { // On lance une boucle pour chaque match.
             }
 
             if ($bet['score_home'] == $game['score_home'] && $bet['score_away'] == $game['score_away']) { // Enfin, on regarde si le parieur a le bon score.
-                $points_bon_score = 1;
+                $points_bon_score = 3;
             }
             updatePointsByGame($bdd, $game['id'], $better['better_id'], $points_resultat, $points_resultat_final, $points_ecart, $points_bon_score); // Et on termine en inscrivant les points dans la BDD.
         }

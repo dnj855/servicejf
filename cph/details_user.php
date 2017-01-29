@@ -18,7 +18,7 @@
         <h6>Points de l'écart</h6>
     </div>
     <div class="col-sm-1 text-center">
-        <h6>Point du bon score</h6>
+        <h6>Points du bon score</h6>
     </div>
     <div class="col-sm-1 text-center">
         <h6>Total</h6>

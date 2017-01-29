@@ -22,7 +22,7 @@ if (!$cph_include) {
                 <p class="text-justify">Pour chaque match soumis à pronostic, chaque participant doit pronostiquer le score final <em>(à l'issue du temps réglementaire ou des prolongations s'il y en a)</em>.
                     En phase finale, s'il pronostique un match nul, le participant doit également préciser quelle équipe, selon lui, se qualifie pour le tour suivant à l'issue de la séance de tirs aux buts.</p>
                 <li class="h4">Barème des points</li>
-                <p class="text-justify">En fonction des résultats de l'équipe de France, il peut y avoir jusqu'à <strong>76 points</strong> mis en jeu dans ce challenge. Voici leur répartition :</p>
+                <p class="text-justify">En fonction des résultats de l'équipe de France, il peut y avoir jusqu'à <strong>94 points</strong> mis en jeu dans ce challenge. Voici leur répartition :</p>
                 <dl class="dl-horizontal">
                     <dt>Règle générale</dt>
                     <dd>Chaque type de points peut être remporté indépendamment des autres. Pour le dire autrement, pas besoin d'avoir le bon 1N2 pour remporter les autres points.</dd>
@@ -35,14 +35,14 @@ if (!$cph_include) {
                     <dt>En phase de poules</dt>
                     <dd>Pour chaque bon résultat (1N2) : <em>3 points</em>.</dd>
                     <dd>En fonction de l'écart pronostiqué (cf. exemple plus bas) : <em>de 0 à 3 points</em>.</dd>
-                    <dd>Pour le score exact : <em>1 point bonus</em>.</dd>
+                    <dd>Pour le score exact : <em>3 points bonus</em>.</dd>
                 </dl>
                 <dl class="dl-horizontal">
                     <dt>En phase finale</dt>
                     <dd>Pour chaque bon résultat (1N2) : <em>3 points</em>.</dd>
                     <dd>Pour chaque bon vainqueur : <em>2 points</em>.</dd>
                     <dd>En fonction de l'écart pronostiqué (cf. exemple plus bas) : <em>de 0 à 3 points</em>.</dd>
-                    <dd>Pour le score exact : <em>1 point bonus</em>.</dd>
+                    <dd>Pour le score exact : <em>3 points bonus</em>.</dd>
                 </dl>
                 <dl class="dl-horizontal">
                     <dt>Règle des écarts</dt>
