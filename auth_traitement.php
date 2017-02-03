@@ -18,7 +18,7 @@ if (isset($_SESSION['id'])) { // On vérifie que l'utilisateur n'est pas déjà 
     $nbr = $query->rowCount(); // On vérifie que le pseudo saisi par l'utilisateur existe bien.
     $pseudo = $query->fetch();
 
-    if ($nbr == 0 OR $pseudo['actif'] == 0) { // Si le pseudo n'existe pas dans la BDD, on le renvoie au formulaire d'identification
+    if ($nbr == 0) { // Si le pseudo n'existe pas dans la BDD, on le renvoie au formulaire d'identification
         header('location:auth.php?log=nopseudo');
     } else {
 

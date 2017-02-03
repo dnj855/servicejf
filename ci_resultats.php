@@ -68,7 +68,7 @@ include('auth.php');
                 <div class="row">
 
                     <!--Si l'utilisateur est autorisé, affichage de la navigation vers la saisie de résultats.-->
-                    <?php if ($_SESSION['service'] == '1') { ?>
+                    <?php if ($_SESSION['service'] == '1' && $_SESSION['active']) { ?>
                         <nav class="col-md-3">
                             <div class="panel panel-primary">
                                 <div class="panel-body">
@@ -84,7 +84,7 @@ include('auth.php');
                     <?php if (!isset($_GET['id'])) { ?>
                         <!--Affichage du classement général seulement s'il n'y a pas d'id précisé dans la requête.-->
                         <div class="col-md-5 <?php
-                        if ($_SESSION['service'] != '1') {
+                        if ($_SESSION['service'] != '1' || !$_SESSION['active']) {
                             echo 'col-md-offset-3';
                         }
                         ?>">

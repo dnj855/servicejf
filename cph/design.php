@@ -21,7 +21,7 @@ if (!$cph_include) {
         ?>
         <div class="container">
             <header class="page-header">
-                <h1>le challenge phénoménal handball</h1>
+                <h1>le challenge phénoménal handball <small><em>ce challenge n'est plus actif</em></small></h1>
             </header>
 
             <?php if ($_SESSION['message']) { ?>
@@ -43,48 +43,17 @@ if (!$cph_include) {
                     <div class="panel panel-primary">
                         <div class="panel-body">
                             <ul class="nav nav-pills nav-justified">
-                                <?php if (!checkCphRegistration($bdd, $_SESSION['id']) && checkCphBegin($bdd)) { // Si le jeu a démarré mais que l'utilisateur n'est pas inscrit. ?>
-                                    <li <?php
-                                    if ($_GET['action'] == 'home') {
-                                        echo 'class="active"';
-                                    }
-                                    ?>><a href="cph.php?action=home"><span class="glyphicon glyphicon-th-list"></span> Classement provisoire</a></li>
-                                    <li <?php
-                                    if ($_GET['action'] == 'view_bet') {
-                                        echo 'class="active"';
-                                    }
-                                    ?>><a href="cph.php?action=view_bet"><span class="glyphicon glyphicon-eye-open"></span> Voir tous les pronostics</a></li>
-                                        <?php
-                                    } elseif (checkCphRegistration($bdd, $_SESSION['id']) || $_POST['checked_final_bet']) { // Si l'utilisateur est inscrit, mais que le jeu n'a pas démarré.
-                                        ?>
-                                    <li <?php
-                                    if ($_GET['action'] == 'home') {
-                                        echo 'class="active"';
-                                    }
-                                    ?>><a href="cph.php?action=home"><span class="glyphicon glyphicon-th-list"></span> Classement provisoire</a></li>
-                                    <li <?php
-                                    if ($_GET['action'] == 'set_bet') {
-                                        echo 'class="active"';
-                                    }
-                                    ?>><a href="cph.php?action=set_bet"><span class="glyphicon glyphicon-pencil"></span> Enregistrer ses pronostics</a></li>
-                                    <li <?php
-                                    if ($_GET['action'] == 'view_bet') {
-                                        echo 'class="active"';
-                                    }
-                                    ?>><a href="cph.php?action=view_bet"><span class="glyphicon glyphicon-eye-open"></span> Voir tous les pronostics</a></li>
-                                    <?php } else { // Dans les autres cas.
-                                        ?>
-                                    <li <?php
-                                    if ($_GET['action'] == 'home') {
-                                        echo 'class="active"';
-                                    }
-                                    ?>><a href="cph.php?action=home"><span class="glyphicon glyphicon-pencil"></span> Pronostiquer le vainqueur final</a></li>
-                                    <?php } ?>
                                 <li <?php
-                                if ($_GET['action'] == 'reglement') {
+                                if ($_GET['action'] == 'home') {
                                     echo 'class="active"';
                                 }
-                                ?>><a href="cph.php?action=reglement"><span class="glyphicon glyphicon-list-alt"></span> Lire le règlement</a></li>
+                                ?>><a href="cph.php?action=home"><span class="glyphicon glyphicon-th-list"></span> Classement final</a></li>
+                                <li <?php
+                                if ($_GET['action'] == 'view_bet') {
+                                    echo 'class="active"';
+                                }
+                                ?>><a href="cph.php?action=view_bet"><span class="glyphicon glyphicon-eye-open"></span> Voir tous les pronostics</a></li>
+                                <li><a href="cph.php?action=reglement"><span class="glyphicon glyphicon-list-alt"></span> Lire le règlement</a></li>
                             </ul>
                         </div>
                     </div>

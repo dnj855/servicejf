@@ -78,6 +78,7 @@ function setSessionVariables($bdd, $id) {
     $_SESSION['service'] = $pseudo['service_id'];
     $_SESSION['css'] = $pseudo['css'];
     $_SESSION['cdrb'] = $pseudo['cdrb'];
+    $_SESSION['actif'] = $pseudo['actif'];
 }
 
 function ratio($valeur, $total) {

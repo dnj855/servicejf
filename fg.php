@@ -42,24 +42,26 @@ if (!$_GET) {
             <div class="row">
                 <nav class="col-md-4">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="panel panel-primary">
-                                <div class="panel-body">
-                                    <ul class="nav nav-pills nav-stacked">
-                                        <li <?php
-                                        if ($_GET['action'] == 'write') {
-                                            echo 'class="active"';
-                                        }
-                                        ?>><a href="fg.php?action=write"><span class="glyphicon glyphicon-pencil"></span> Poster une punchline</a></li>
-                                        <li <?php
-                                        if ($_GET['action'] == 'read' || $_GET['action'] == 'vote') {
-                                            echo 'class="active"';
-                                        }
-                                        ?>><a href="fg.php?action=read&month=<?php echo $now->format('m'); ?>&year=<?php echo $now->format('Y'); ?>"><span class="glyphicon glyphicon-list-alt"></span> Lire les punchlines</a></li>
-                                    </ul>
+                        <?php if ($_SESSION['active']) { ?>
+                            <div class="col-md-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <li <?php
+                                            if ($_GET['action'] == 'write') {
+                                                echo 'class="active"';
+                                            }
+                                            ?>><a href="fg.php?action=write"><span class="glyphicon glyphicon-pencil"></span> Poster une punchline</a></li>
+                                            <li <?php
+                                            if ($_GET['action'] == 'read' || $_GET['action'] == 'vote') {
+                                                echo 'class="active"';
+                                            }
+                                            ?>><a href="fg.php?action=read&month=<?php echo $now->format('m'); ?>&year=<?php echo $now->format('Y'); ?>"><span class="glyphicon glyphicon-list-alt"></span> Lire les punchlines</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php } ?>
                         <div class="col-md-12">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
