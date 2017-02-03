@@ -10,7 +10,7 @@ if (!checkCphRegistration($bdd, $_SESSION['id']) && !checkCphBegin($bdd)) {
     <div class='panel panel-primary'>
         <div class="panel-heading">
             <h4 class="panel-title">Classement <?php
-                if (checkIfCphFinished($bdd)) {
+                if (!checkIfCphFinished($bdd)) {
                     echo "provisoire";
                 } else {
                     echo "final";
