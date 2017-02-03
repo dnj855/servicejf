@@ -1,13 +1,13 @@
 Le service JF est une invention de deux joyeux lurons salariés d'une radio de service public en Lorraine. L'idée de ce site est de créer un portail unique pour tous les membres du service, c'est-à-dire plus ou moins tous les salariés de cette radio.
 
-A ce jour, deux jeux existent :
+A ce jour, quatre jeux existent :
 - le challenge invité (abrégé ci)
 - le challenge des soirées sport (abrégé css)
+- le challenge du fichier gnou (abrégé fg)
+- le challenge de la présidentielle (abrégé cp)
 
-Prochains développements du projet :
-- présentation améliorée des résultats des challenges
-- refonte de toute l'architecture avec le framework Symfony
+A également été créé, par le passé, le challenge phénoménal handball (cph).
 
-Bref, y'a du boulot !
+Le site est entièrement responsive et est en constante amélioration sur ce point.
 
 Cédric Lang-Roth, développeur-programmeur

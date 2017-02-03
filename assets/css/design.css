@@ -11,6 +11,11 @@ body {
 img.logo {
     width: 100%;
 }
+
+.jumbotron {
+    border-bottom: solid graytext 1px;
+    background-color: #cccccc;
+}
 /*
 Copyright (C) 2016 cedriclangroth
 
