@@ -6,20 +6,28 @@
         <title>Bienvenue sur le portail du service j&f:</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/design.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/auth_design.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
+        <header class="jumbotron col-sm-12">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center ">
+                        <h1>service jeux&festivités:</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <p>connexion obligatoire</p>
+                    </div>
+                </div>
+            </div>
+        </header>
         <div class="container">
-            <header class="page-header">
-                <h1 class="text-center">Bienvenue sur le portail du service jeux&festivités:</h1>
-            </header>
             <div class="row">
                 <section class="col-sm-6 col-sm-offset-3">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">Connexion obligatoire pour accéder au portail</h2>
-                        </div>
                         <div class="panel-body">
                             <form method="post" action="auth_traitement.php">
                                 <fieldset>

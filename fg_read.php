@@ -42,7 +42,7 @@
                     <?php
                     $date = new DateTime($punchline['date_message']);
                     $date_now = new DateTime();
-                    if ($date->format('m') == $date_now->format('m') && $_SESSION['active']) {
+                    if ($date->format('m') == $date_now->format('m') && $_SESSION['actif']) {
                         ?>
                         <p class="list-group-item-text text-center">
                             <a href="fg.php?action=vote&id=<?php echo $punchline['id']; ?>" class="btn btn-success btn-xs">Voter pour cette punchline</a>
