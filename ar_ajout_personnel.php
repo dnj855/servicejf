@@ -32,7 +32,7 @@ if ($_SESSION['admin'] == 0) {
                                 <?php include 'ar_formulaire_utilisateur.php'; ?>
                         </div>
                         <div class="panel-footer">
-                            Ne pas oublier de créer un mot de passe au participant après l'avoir ajouté.
+                            En page suivante, tu pourras créer le mot de passe de cet utilisateur.
                         </div>
                     </div>
                 </div>

@@ -58,12 +58,20 @@
 </div>
 <nav aria-label="...">
     <ul class="pager">
-        <li class="previous">
+        <li class="previous<?php
+        if ($previous_year == 2016 && $previous_month < 11) { // Le challenge fg n'a démarré qu'en novembre 2016, on ne peut pas afficher les pages avant.
+            echo " disabled";
+        }
+        ?>">
             <a href="fg.php?action=read&month=<?php echo $previous_month; ?>&year=<?php echo $previous_year; ?>">
                 <span aria-hidden="true">&larr;</span> <?php
                 echo $mois[$previous_month] . ' ' . $previous_year;
                 ?></a></li>
-        <li class="next">
+        <li class="next<?php
+            if ($next_year > $now->format('Y') || ($next_year == $now->format('Y') && $next_month > $now->format('m'))) {
+                echo " disabled";
+            }
+            ?>">
             <a href="fg.php?action=read&month=<?php echo $next_month ?>&year=<?php echo $next_year; ?>"><?php
                 echo $mois[$next_month] . ' ' . $next_year;
                 ?> <span aria-hidden="true">&rarr;</span></a></li>

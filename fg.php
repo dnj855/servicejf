@@ -94,10 +94,15 @@ if (!$_GET) {
                     if ($_GET['action'] == 'write') {
                         include ('fg_write.php');
                     } elseif ($_GET['action'] == 'read') {
-                        if (validateMonth($_GET['month']) && validateYear($_GET['year'])) { // On s'assure juste que les données passées en Get correspondent à des valeurs correctes. Si ce n'est pas le cas, 404 !
-                            include ('fg_read.php');
-                        } else {
+                        if (!validateMonth($_GET['month']) && !validateYear($_GET['year'])) { // On s'assure juste que les données passées en Get correspondent à des valeurs correctes.
+                            include('fg_404.php');
+                        }
+                        if ($_GET['year'] > $now->format('Y')) {
+                            include('fg_404.php');
+                        } elseif ($_GET['year'] == $now->format('Y') && $_GET['month'] > $now->format('m')) {
                             include ('fg_404.php');
+                        } else {
+                            include ('fg_read.php');
                         }
                     } elseif ($_GET['action'] == 'vote') {
                         include ('fg_vote.php');
