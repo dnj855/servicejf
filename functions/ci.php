@@ -10,8 +10,16 @@ function getCiResults($bdd, $id = '') {
         $query = $bdd->query('SELECT DISTINCT personnel_fbln.id AS itw_id FROM challenge_invite JOIN personnel_fbln ON personnel_fbln.id = challenge_invite.identite');
         $i = 0;
         while ($loop_intervieweur = $query->fetch()) {
-            $tableau_intervieweur[$i]['id'] = $loop_intervieweur['itw_id'];
-            $i++;
+            $subquery = $bdd->prepare('SELECT COUNT(*) AS nb_itw FROM challenge_invite WHERE identite = :itw_id');
+            $subquery->execute(array(
+                'itw_id' => $loop_intervieweur['itw_id']
+            ));
+            $nb_itw = $subquery->fetch();
+
+            if ($nb_itw['nb_itw'] >= 5) {
+                $tableau_intervieweur[$i]['id'] = $loop_intervieweur['itw_id'];
+                $i++;
+            }
         }
     }
 

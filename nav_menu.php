@@ -65,7 +65,7 @@
                             <li class="divider"></li>
                             <li class="dropdown-header">Administration du site</li>
                             <li><a href="ar_affichage_personnel.php">Gestion du personnel</a></li>
-                            <li><a href="#">Gestion du challenge de la présidentielle</a></li>
+                            <li><a href="ar_cp.php">Gestion du challenge de la présidentielle</a></li>
                             <li><a href="ar_bai_consult.php">Messages de la boite à idées</a></li>
                             <?php
                         }

@@ -7,6 +7,7 @@ include('functions/css.php');
 include('functions/fg.php');
 include('functions/ci.php');
 include('functions/cph.php');
+include('functions/cp.php');
 setlocale(LC_TIME, "fr_FR");
 $mois = array(
     '01' => 'janvier',

@@ -34,7 +34,7 @@ include('auth.php');
                     </div>
                 <?php } ?>
                 <div class="row">
-                    <?php if ($_SESSION['css'] == '1' && $_SESSION['active']) { ?>
+                    <?php if ($_SESSION['css'] == '1' && $_SESSION['actif']) { ?>
                         <nav class="col-md-4">
                             <div class="panel panel-primary">
                                 <div class="panel-body">
@@ -47,7 +47,7 @@ include('auth.php');
                         </nav>
                     <?php } ?>
                     <div class="col-md-8 <?php
-                    if ($_SESSION['css'] != '1' || !$_SESSION['active']) {
+                    if ($_SESSION['css'] != '1' || !$_SESSION['actif']) {
                         echo 'col-md-offset-4';
                     }
                     ?>">

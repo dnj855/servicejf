@@ -42,7 +42,7 @@ if (!$_GET) {
             <div class="row">
                 <nav class="col-md-4">
                     <div class="row">
-                        <?php if ($_SESSION['active']) { ?>
+                        <?php if ($_SESSION['actif']) { ?>
                             <div class="col-md-12">
                                 <div class="panel panel-primary">
                                     <div class="panel-body">
