@@ -41,4 +41,3 @@ if (isset($_SESSION['id'])) { // On regarde d'abord si l'utilisateur est déjà 
 } else {
     header('location:auth.php?log=new');
 }
-?>

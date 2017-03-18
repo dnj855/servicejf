@@ -3,6 +3,9 @@
 </div>
 <ul class="list-group">
     <li class="list-group-item">
-        <em>Challenge en cours de développement</em>
+        <a href="cp.php?action=home">Entrer dans le challenge</a>
+    </li>
+    <li class="list-group-item">
+        <a href="cp.php?action=rules">Lire le règlement</a>
     </li>
 </ul>

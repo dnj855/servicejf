@@ -3,6 +3,16 @@ include('auth.php');
 if ($_SESSION['admin'] == 0) {
     header('location:index.php');
 }
+if ($_GET['action'] == 'delete_result') {
+    deleteCpResult($bdd, $_GET['rank']);
+    header('location:ar_cp.php?action=set_score');
+} elseif ($_GET['action'] == 'validate_results') {
+    include('ar_cp/validate_results.php');
+    header('location:cp.php?action=home');
+} elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['final_winner'] != 0) {
+    include('ar_cp/set_final_winner.php');
+    header('location:cp.php?action=home');
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,6 +54,13 @@ if ($_SESSION['admin'] == 0) {
                                 ?>>
                                     <a href="ar_cp.php?action=set_score"><span class="glyphicon glyphicon-pencil"></span> Enregistrer les résultats</a>
                                 </li>
+                                <li<?php
+                                if ($_GET['action'] == 'close_bet') {
+                                    echo ' class="active"';
+                                }
+                                ?>>
+                                    <a href="ar_cp.php?action=close_bet"><span class="glyphicon glyphicon-off"></span> Clore les pronostics</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -57,6 +74,8 @@ if ($_SESSION['admin'] == 0) {
                         include('ar_cp/set_candidates.php');
                     } elseif ($_GET['action'] == 'set_score') {
                         include('ar_cp/set_score.php');
+                    } elseif ($_GET['action'] == 'close_bet') {
+                        include('ar_cp/close_bet.php');
                     } else {
                         echo '<div class="well text-center">Erreur 404 : la page demandée n\'existe pas</div>';
                     }

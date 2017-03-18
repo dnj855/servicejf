@@ -30,6 +30,13 @@
                     </ul>
                 </li>
                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Challenge de la présidentielle <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="cp.php?action=home">Entrer dans le challenge</a></li>
+                        <li><a href="cp.php?action=rules">Lire le règlement</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Challenge du fichier gnou <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php if ($_SESSION['actif']) { ?>

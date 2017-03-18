@@ -1,5 +1,5 @@
 <?php
-$registered_candidates = getCandidates($bdd); // Pour éviter les doublons, on présente d'abord les candidats qu'on a déjà enregistrés.
+$registered_candidates = getCpCandidates($bdd); // Pour éviter les doublons, on présente d'abord les candidats qu'on a déjà enregistrés.
 if ($registered_candidates) {
     ?>
     <div class="panel panel-primary">

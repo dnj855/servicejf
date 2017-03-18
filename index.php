@@ -184,7 +184,7 @@ include('auth.php');
                         </div>
 
                     <?php } else { ?>
-                        <div class="col-md-10 col-md-offset-1 text-center ">
+                        <div class="col-md-10 col-md-offset-1 text-center visible-md-block visible-lg-block">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">Les anciens challenges</h4>
