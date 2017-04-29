@@ -76,6 +76,8 @@ if ($_GET['action'] == 'delete_result') {
                         include('ar_cp/set_score.php');
                     } elseif ($_GET['action'] == 'close_bet') {
                         include('ar_cp/close_bet.php');
+                    } elseif ($_GET['action'] == 'test') {
+                        include('ar_cp/test.php');
                     } else {
                         echo '<div class="well text-center">Erreur 404 : la page demandée n\'existe pas</div>';
                     }
