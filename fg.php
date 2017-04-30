@@ -74,10 +74,18 @@ if (!$_GET) {
                                         foreach ($best_punchlines as $month => $punchline) {
                                             foreach ($punchline as $id_punchline) {
                                                 $punchline_message = getFg($bdd, $id_punchline);
+                                                $best_punchline_vote = getFgVotes($bdd, $id_punchline);
+                                                $month_votes = getFgMonthVotes($bdd, $month);
+                                                $pourcentage = round(($best_punchline_vote[0] / $month_votes['votes']) * 100, 2);
                                                 ?>
                                                 <li class="list-group-item">
-                                                    <h4 class="list-group-item-heading"><?php echo $month; ?></h4>
+                                                    <h4 class="list-group-item-heading">
+                                                        <a href="fg.php?action=read&month=<?php echo substr($month, 0, 2); ?>&year=<?php echo substr($month, 3, 7); ?>">
+                                                            <?php echo ucfirst($mois[substr($month, 0, 2)]) . ' ' . substr($month, 3, 7); ?>
+                                                        </a>
+                                                    </h4>
                                                     <p><?php echo nl2br(htmlspecialchars($punchline_message['message'])); ?></p>
+                                                    <p><em><?php echo $best_punchline_vote[0]; ?> votes (<?php echo $pourcentage; ?> %)</em></p>
                                                 </li>
 
 

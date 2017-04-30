@@ -114,9 +114,21 @@ function getFgBestPunchlines($bdd) {
     $punchlines = array();
     $i = 0;
     while (getFgBestPunchline($bdd, $month, $year)) {
-        $punchlines[$month . '/' . $year] = getFgBestPunchline($bdd, $month, $year);
+        $punchlines[$month . '-' . $year] = getFgBestPunchline($bdd, $month, $year);
         $year = getFgPreviousYear($month, $year);
         $month = previousMonth($month);
     }
     return $punchlines;
+}
+
+function getFgMonthVotes($bdd, $month_year) {
+    $month = substr($month_year, 0, 2);
+    $year = substr($month_year, 3, 7);
+    $year_month = $year . '-' . $month;
+    $first_day = $year_month . "-01";
+    $query = $bdd->prepare('SELECT COUNT(*) votes FROM fg_vote WHERE vote_date BETWEEN :first_day AND LAST_DAY(:first_day)');
+    $query->execute(array(
+        'first_day' => $first_day
+    ));
+    return $query->fetch();
 }
