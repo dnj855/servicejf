@@ -2,7 +2,7 @@
 
 function getFg($bdd, $id = '') {
     if ($id) {
-        $query = $bdd->prepare('SELECT message, id, date_message FROM fg WHERE id = :id');
+        $query = $bdd->prepare('SELECT message, id, date_message, sender FROM fg WHERE id = :id');
         $query->execute(array(
             'id' => $id
         ));
@@ -130,5 +130,21 @@ function getFgMonthVotes($bdd, $month_year) {
     $query->execute(array(
         'first_day' => $first_day
     ));
+    return $query->fetch();
+}
+
+function checkFgBvIfAlreadyVoted($bdd, $voter_id) {
+    $query = $bdd->prepare('SELECT COUNT(*) votes FROM fg_bv WHERE voter_id = :voter_id');
+    $query->execute(array(
+        'voter_id' => $voter_id
+    ));
+    $vote = $query->fetch();
+    return $vote['votes'];
+}
+
+function getFgBvVote($bdd, $voter_id) {
+    $query = $bdd->prepare('SELECT p.message, p.sender, v.vote_date FROM fg p JOIN fg_bv v ON v.punchline_id = p.id WHERE v.voter_id = :voter_id');
+    $query->execute(array(
+        'voter_id' => $voter_id));
     return $query->fetch();
 }
