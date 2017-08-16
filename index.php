@@ -68,12 +68,12 @@ include('auth.php');
                             <div class="panel-heading" role="tab" id="headingThree">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Le challenge de la présidentielle
+                                        Fichier gnou : le grand vote
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                <?php include('index_panels/cp.php'); ?>
+                                <?php include('index_panels/fg_bv.php'); ?>
                             </div>
                         </div>
                         <div class="panel panel-primary">
@@ -144,9 +144,9 @@ include('auth.php');
                     <div class="col-md-5 col-md-offset-1  visible-md-block visible-lg-block text-right">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Le challenge de la présidentielle</h4>
+                                <h4 class="panel-title">Fichier gnou : le grand vote</h4>
                             </div>
-                            <?php include('index_panels/cp.php'); ?>
+                            <?php include('index_panels/fg_bv.php'); ?>
                         </div>
                     </div>
                     <div class="col-md-5 visible-md-block visible-lg-block text-left">

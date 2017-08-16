@@ -21,7 +21,7 @@ if (!$cp_include) {
         ?>
         <div class="container">
             <header class="page-header">
-                <h1>le challenge de la présidentielle</h1>
+                <h1>le challenge de la présidentielle <small><em>ce challenge n'est plus actif</em></small></h1>
             </header>
             <div class="row">
                 <div class="col-xs-12">

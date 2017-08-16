@@ -5,4 +5,7 @@
     <li class="list-group-item">
         <a href="cph.php?action=home">Le challenge phénoménal handball</a>
     </li>
+    <li class="list-group-item">
+        <a href="cp.php?action=home">Le challenge de la présidentielle</a>
+    </li>
 </ul>

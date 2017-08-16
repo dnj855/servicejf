@@ -7,7 +7,7 @@ include ('auth.php');
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bienvenue sur le portail du service j&f:</title>
+        <title>Challenge des soirées sports</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/design.css" rel="stylesheet" type="text/css" />
@@ -19,7 +19,7 @@ include ('auth.php');
         ?>
         <div class="container">
             <header class="page-header">
-                <h1 class="text-center">Bienvenue sur le portail du service jeux&festivités:</h1>
+                <h1 class="text-center">Challenge des soirées sport</h1>
             </header>
             <div class="row">
                 <section class="col-sm-6 col-sm-offset-3">
@@ -29,7 +29,7 @@ include ('auth.php');
                         </div>
                         <div class="panel-body">
                             <p class="lead text-center">
-                                Pour être encore plus proche de vous, le service jeux&festivités: travaille activement sur son portail
+                                Pour être encore plus proche de vous, le service jeux&festivités: travaille activement sur ce challenge.<br />Il reviendra très vite sous une nouvelle forme !
                             </p>
                             <div class="progress">
                                 <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
