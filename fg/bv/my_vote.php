@@ -1,8 +1,8 @@
 <div class="row justify-content-center">
     <div class="col-sm-12 col-md-6">
         <div class="card border-info">
-            <div class="card-header border-info bg-info">
-                <h4 class="card-title text-light mb-0">Voici la punchline pour laquelle tu as voté</h4>
+            <div class="card-header border-info">
+                <h4 class="card-title text-info mb-0">Voici la punchline pour laquelle tu as voté</h4>
             </div>
             <div class="card-body">
                 <blockquote class="quote mb-0">
@@ -15,7 +15,7 @@
                     <footer class="blockquote-footer mt-3">Signé <?php echo $sender['prenom'] . ' ' . substr($sender['nom'], 0, 1) . '.'; ?></footer>
                 </blockquote>
             </div>
-            <div class="card-footer bg-info text-light text-right">
+            <div class="card-footer text-info text-right">
                 <em>Ton vote a été enregistré le <?php echo $date_vote->format('d.m.Y') ?>.<br />Rendez-vous le 1er octobre pour connaître le résultat des votes.</em>
             </div>
         </div>

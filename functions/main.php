@@ -71,6 +71,7 @@ function setSessionVariables($bdd, $id) {
     $query = $bdd->prepare('SELECT * FROM personnel_fbln WHERE id = ?');
     $query->execute(array($id));
     $pseudo = $query->fetch();
+    $season = getSeason($bdd, new DateTime());
     $_SESSION['id'] = $pseudo['id'];
     $_SESSION['prenom'] = $pseudo['prenom'];
     $_SESSION['nom'] = $pseudo['nom'];
@@ -79,7 +80,7 @@ function setSessionVariables($bdd, $id) {
     $_SESSION['css'] = $pseudo['css'];
     $_SESSION['cdrb'] = $pseudo['cdrb'];
     $_SESSION['actif'] = $pseudo['actif'];
-    $_SESSION['css_season'] = 0;
+    $_SESSION['season'] = $season['id'];
 }
 
 function ratio($valeur, $total) {
@@ -103,4 +104,20 @@ function validateMonth($month) {
 
 function validateYear($year) {
     return preg_match('#^201[6-9]$|^202[0-9]$#', $year);
+}
+
+function getSeason($bdd, $now) {
+    if ($now->format('m') >= '08') {
+        $season['saison_debut'] = (int) $now->format('Y');
+        $season['saison_fin'] = $season['saison_debut'] + 1;
+    } else {
+        $season['saison_fin'] = (int) $now->format('Y');
+        $season['saison_debut'] = $season['saison_fin'] - 1;
+    }
+    $query = $bdd->prepare('SELECT id FROM seasons WHERE saison_debut = :saison_debut');
+    $query->execute(array(
+        'saison_debut' => $season['saison_debut']
+    ));
+    $season['id'] = $query->fetch(PDO::FETCH_COLUMN, 0);
+    return $season;
 }

@@ -1,5 +1,6 @@
 <?php
 include ('auth.php');
+$end_vote = new DateTime('2017-10-01');
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['vote_validation']) {
     include('fg/bv/vote_treatment.php');
 }
@@ -19,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['vote_validation']) {
     <body>
         <?php
         include('nav_menu_v4.php');
-        $end_vote = new DateTime('2017-10-01');
         ?>
 
         <div class="container">

@@ -12,8 +12,8 @@
         </tr>
         <?php
         $i = 1;
-        $realisateurs = getCssClassementParPoints($bdd, $_SESSION['css_season']);
-        $general = getCssClassementGeneral($bdd, $_SESSION['css_season']);
+        $realisateurs = getCssClassementParPoints($bdd, $_SESSION['season']);
+        $general = getCssClassementGeneral($bdd, $_SESSION['season']);
         foreach ($realisateurs as $id => $realisateur) {
             ?>
             <tr<?php

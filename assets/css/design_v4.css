@@ -2,6 +2,7 @@ body {
     padding-top:60px;
     background-image:url('../img/scribble_light.png');
     background-repeat:repeat;
+    position: relative;
 }
 
 img.logo {
@@ -11,6 +12,10 @@ img.logo {
 .jumbotron {
     border-bottom: solid graytext 1px;
     background-color: #cccccc;
+}
+
+#fixed-nav {
+    margin-top:60px;
 }
 
 /*

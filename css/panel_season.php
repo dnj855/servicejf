@@ -8,7 +8,7 @@ if ($_GET['action'] == 'write') {
     echo 'consultation';
 }
 echo ' : ';
-echo getCssSeason($bdd, $_SESSION['css_season']) . ' ';
-echo '<a href="css.php?action=' . $_GET['action'] . '&season=reset_season"><small>(modifier)</small></a>'; // le lien de réinitialisation de saison
+echo getCssSeason($bdd, $_SESSION['season']) . ' ';
+echo '<a href="css.php?action=' . $_GET['action'] . '&season=reset_season"><small>(saisons précédentes)</small></a>'; // le lien de réinitialisation de saison
 echo '</em>';
 echo '</div>';

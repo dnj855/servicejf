@@ -15,9 +15,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Challenge invité <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php if ($_SESSION['service'] == '1' && $_SESSION['actif']) { ?>
-                            <li><a href="ci.php">Saisir un invité</a></li>
+                            <li><a href="ci.php?action=write">Saisir un invité</a></li>
                         <?php } ?>
-                        <li><a href="ci_resultats.php">Consulter les résultats provisoires</a></li>
+                        <li><a href="ci.php?action=read">Consulter les résultats</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -31,16 +31,37 @@
                 </li>
 
                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Challenge handball mondial <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <?php
+                        if ($_SESSION['actif']) {
+                            if (checkcger17Registration($bdd, $_SESSION['id']) || !checkcger17Begin($bdd)) {
+                                ?>
+                                <li>
+                                    <a href="cger17.php">Pronostiquer</a>
+                                </li>
+                                <?php
+                            }
+                        }
+                        if (checkcger17Begin($bdd)) {
+                            ?>
+                            <li>
+                                <a href="cger17.php?action=ranking">Voir les résultats</a>
+                            </li>
+                        <?php }
+                        ?>
+                        <li>
+                            <a href="cger17.php?action=rules">Lire le règlement</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Challenge du fichier gnou <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php
                         if ($_SESSION['actif']) {
-                            if ($now > new DateTime('2017-09-01') && $now < new DateTime('2017-10-01')) {
-                                ?>
-                                <li>
-                                    <a href="fg_bv.php">Participer au grand vote</a>
-                                </li>
-                            <?php } ?>
+                            ?>
                             <li>
                                 <a href="fg.php?action=write">Poster une punchline</a>
                             </li>
@@ -73,7 +94,7 @@
                             <li class="divider"></li>
                             <li class="dropdown-header">Administration du site</li>
                             <li><a href="ar_affichage_personnel.php">Gestion du personnel</a></li>
-                            <li><a href="ar_cp.php">Gestion du challenge de la présidentielle</a></li>
+                            <li><a href="ar_cger17.php">Gestion du challenge du mondial 2017</a></li>
                             <li><a href="ar_bai_consult.php">Messages de la boite à idées</a></li>
                             <?php
                         }

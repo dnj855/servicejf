@@ -68,12 +68,12 @@ include('auth.php');
                             <div class="panel-heading" role="tab" id="headingThree">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Fichier gnou : le grand vote
+                                        Le challenge handball mondial
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                <?php include('index_panels/fg_bv.php'); ?>
+                                <?php include('index_panels/cger17.php'); ?>
                             </div>
                         </div>
                         <div class="panel panel-primary">
@@ -144,9 +144,9 @@ include('auth.php');
                     <div class="col-md-5 col-md-offset-1  visible-md-block visible-lg-block text-right">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Fichier gnou : le grand vote</h4>
+                                <h4 class="panel-title">Le challenge handball mondial</h4>
                             </div>
-                            <?php include('index_panels/fg_bv.php'); ?>
+                            <?php include('index_panels/cger17.php'); ?>
                         </div>
                     </div>
                     <div class="col-md-5 visible-md-block visible-lg-block text-left">

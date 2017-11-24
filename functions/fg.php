@@ -148,3 +148,20 @@ function getFgBvVote($bdd, $voter_id) {
         'voter_id' => $voter_id));
     return $query->fetch();
 }
+
+function getFgBvOrderedPunchlines($bdd, $year) {
+    $query = $bdd->prepare('SELECT u.nom, u.prenom, p.message, p.date_message, COUNT(b.punchline_id) votes FROM fg_bv b LEFT JOIN fg p ON b.punchline_id = p.id RIGHT JOIN personnel_fbln u ON u.id = p.sender WHERE DATE_FORMAT(vote_date, \'%Y\') = :year GROUP BY b.punchline_id ORDER BY votes DESC');
+    $query->execute(array(
+        'year' => $year
+    ));
+    $results = $query->fetchAll(PDO::FETCH_ASSOC);
+    $query = $bdd->prepare('SELECT COUNT(*) FROM fg_bv WHERE DATE_FORMAT(vote_date, \'%Y\') = :year');
+    $query->execute(array(
+        'year' => $year
+    ));
+    $votes = $query->fetch(PDO::FETCH_COLUMN, 0);
+    foreach ($results as $id => $result) {
+        $results[$id]['percentage'] = round(100 * $result['votes'] / $votes, 0);
+    }
+    return $results;
+}

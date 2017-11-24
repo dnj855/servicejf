@@ -13,7 +13,7 @@
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">Par réalisateur <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php
-                        $techniciens = selectCssAllPlayers($bdd, $_SESSION['css_season']);
+                        $techniciens = selectCssAllPlayers($bdd, $_SESSION['season']);
                         foreach ($techniciens as $technicien) {
                             echo '<li><a href="css.php?action=read&realisateur=' . $technicien['id'] . '">' . $technicien['prenom'] . ' ' . substr($technicien['nom'], 0, 1) . '.</a></li>';
                         }
@@ -36,7 +36,7 @@
             include ('404.php');
         }
     } elseif ($_GET['realisateur']) {
-        $allowedDirectors = selectCssAllPlayers($bdd, $_SESSION['css_season']); // On vérifie que l'id entré en GET correspond bien à un réalisateur de la saison concernée.
+        $allowedDirectors = selectCssAllPlayers($bdd, $_SESSION['season']); // On vérifie que l'id entré en GET correspond bien à un réalisateur de la saison concernée.
         $error = 1;
         foreach ($allowedDirectors as $director) {
             if ($director['id'] == $_GET['realisateur']) {

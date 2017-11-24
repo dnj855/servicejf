@@ -8,4 +8,7 @@
     <li class="list-group-item">
         <a href="cp.php?action=home">Le challenge de la présidentielle</a>
     </li>
+    <li class="list-group-item">
+        <a href="fg_bv.php">Fichier gnou : le grand vote</a>
+    </li>
 </ul>

@@ -8,17 +8,16 @@ include('auth.php');
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Service j&f: - le challenge invité</title>
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/design.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link href="assets/css/design_v4.css" rel="stylesheet" type="text/css" />
+        <link href="assets/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
     </head>
 
     <body>
-        <?php include('nav_menu.php'); ?>
+        <?php include('nav_menu_v4.php'); ?>
         <div class="container">
-            <header class="page-header">
-                <h1>le challenge invité</h1>
-            </header>
+            <h1 class="display-4">le challenge invité</h1>
+            <hr>
 
             <section>
 

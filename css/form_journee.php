@@ -1,6 +1,6 @@
 <?php
 if ($_GET['day']) {
-    $journee = cssGetAlreadySetInfos($bdd, $_GET['day'], $_SESSION['css_season']);
+    $journee = cssGetAlreadySetInfos($bdd, $_GET['day'], $_SESSION['season']);
 }
 
 if ($alerte['no-alert']) { // Si les scripts de contrôle se sont bien passés, on affiche la confirmation.
@@ -13,7 +13,7 @@ if ($alerte['no-alert']) { // Si les scripts de contrôle se sont bien passés, 
             <div class="panel-body">
                 <ul class="list-inline">
                     <?php
-                    $alreadySetDays = getCssAlreadySetDay($bdd, $_SESSION['css_season']);
+                    $alreadySetDays = getCssAlreadySetDay($bdd, $_SESSION['season']);
                     foreach ($alreadySetDays as $day) {
                         echo '<li><a href="css.php?action=write&day=' . $day . '">' . $day . '</a></li>';
                     }
@@ -45,7 +45,7 @@ if ($alerte['no-alert']) { // Si les scripts de contrôle se sont bien passés, 
             <div class="panel-body">
                 <ul class="list-inline">
                     <?php
-                    $alreadySetDays = getCssAlreadySetDay($bdd, $_SESSION['css_season']);
+                    $alreadySetDays = getCssAlreadySetDay($bdd, $_SESSION['season']);
                     foreach ($alreadySetDays as $day) {
                         echo '<li><a href="css.php?action=write&day=' . $day . '">' . $day . '</a></li>';
                     }
@@ -62,7 +62,7 @@ if ($alerte['no-alert']) { // Si les scripts de contrôle se sont bien passés, 
                     if (!$_GET['day']) {
                         echo 'Créer une nouvelle journée';
                     } else {
-                        echo 'Modifier la journée n°' . $_GET['day'] . '<small><a href="css.php?action=write">(ou en créer une nouvelle)</a></small>';
+                        echo 'Modifier la journée n°' . $_GET['day'] . '<small><a href="css.php?action=write"> (ou en créer une nouvelle)</a></small>';
                     }
                     ?>
                 </h2>
@@ -115,7 +115,7 @@ if ($alerte['no-alert']) { // Si les scripts de contrôle se sont bien passés, 
                                         <select name="day" id="day" class="form-control">
                                             <option value=''>---Choisir---</option>
                                             <?php
-                                            $remainingDays = getCssRemainingDays($bdd, $_SESSION['css_season']);
+                                            $remainingDays = getCssRemainingDays($bdd, $_SESSION['season']);
                                             foreach ($remainingDays as $day) {
                                                 echo '<option value="' . $day . '"';
                                                 if ($_POST['day'] == $day) {
@@ -145,11 +145,11 @@ if ($alerte['no-alert']) { // Si les scripts de contrôle se sont bien passés, 
                                         <option value="">---Choisir---</option>
                                         <?php
                                         if ($_GET['day']) {
-                                            getCssTeamsNames($bdd, $_GET['day'], $_SESSION['css_season']);
+                                            getCssTeamsNames($bdd, $_SESSION['season'], $_GET['day']);
                                         } elseif ($_POST['team']) {
                                             getCssTeamsNamesWithPost($bdd, $_POST['team']);
                                         } else {
-                                            getCssTeamsNames($bdd);
+                                            getCssTeamsNames($bdd, $_SESSION['season']);
                                         }
                                         ?>
                                     </select>

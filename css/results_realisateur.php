@@ -1,5 +1,5 @@
 <?php
-$realisateur = getCssDirectorInfos($bdd, $_GET['realisateur'], $_SESSION['css_season']);
+$realisateur = getCssDirectorInfos($bdd, $_GET['realisateur'], $_SESSION['season']);
 ?>
 
 <div class="panel panel-primary">

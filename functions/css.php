@@ -32,19 +32,19 @@ function getTeams($bdd, $id) {
 }
 
 function getCssSeasons($bdd) {
-    $query = $bdd->query('SELECT id, saison_debut, saison_fin FROM soirees_foot_saisons ORDER BY id desc');
+    $query = $bdd->query('SELECT id, saison_debut, saison_fin FROM seasons ORDER BY id desc');
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function getCssSeason($bdd, $id) {
-    $query = $bdd->prepare('SELECT saison_debut, saison_fin FROM soirees_foot_saisons WHERE id = ?');
+    $query = $bdd->prepare('SELECT saison_debut, saison_fin FROM seasons WHERE id = ?');
     $query->execute(array($id));
     $saison = $query->fetch();
     return $saison['saison_debut'] . '-' . $saison['saison_fin'];
 }
 
 function createCssNewSeason($bdd, $saison_debut) {
-    $query = $bdd->prepare('INSERT INTO soirees_foot_saisons (saison_debut, saison_fin) VALUES (:saison_debut, :saison_fin)');
+    $query = $bdd->prepare('INSERT INTO seasons (saison_debut, saison_fin) VALUES (:saison_debut, :saison_fin)');
     $query->execute(array(
         'saison_debut' => $saison_debut,
         'saison_fin' => $saison_debut + 1
@@ -71,7 +71,7 @@ function getCssRemainingDays($bdd, $season) {
     return array_diff($normalDays, $alreadyFilledDays);
 }
 
-function getCssTeamsNames($bdd, $day, $season) {
+function getCssTeamsNames($bdd, $season, $day = '') {
     if ($day) {
         $dayInfos = cssGetAlreadySetInfos($bdd, $day, $season);
         if ($dayInfos['equipe_home'] != 11) {

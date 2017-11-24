@@ -12,7 +12,7 @@
         </tr>
         <?php
         $i = 1;
-        $realisateurs = getCssClassementGeneral($bdd, $_SESSION['css_season']);
+        $realisateurs = getCssClassementGeneral($bdd, $_SESSION['season']);
         foreach ($realisateurs as $id => $realisateur) {
             ?>
             <tr<?php

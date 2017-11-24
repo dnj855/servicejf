@@ -13,6 +13,7 @@
         <?php
         include('nav_menu.php')
         ?>
+
         <div class="container">
             <header class="page-header">
                 <h1>le challenge des soirées sport</h1>
@@ -44,7 +45,7 @@
                 </nav>
                 <?php
             }
-            if ($_SESSION['css_season'] != 0) { // si une saison a déjà été choisie
+            if ($_SESSION['season'] != 0) { // si une saison a déjà été choisie
                 ?>
                 <div class="row">
                     <div class="col-xs-12">

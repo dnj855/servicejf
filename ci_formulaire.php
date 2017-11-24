@@ -9,7 +9,6 @@
         <link href="assets/css/design.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <?php include('nav_menu.php') ?>
         <div class="container">
             <header class="page-header">
                 <h1>le challenge invité</h1>
@@ -40,7 +39,6 @@
                                         <div class="col-md-9">
                                             <select name="identite" id="identite" class="form-control">
                                                 <option value="">---Choisir---</option>
-                                                <?php selectUserAvecCadre($bdd, 0, 1); ?>
                                             </select>
                                             <p class="help-block">N'oubliez pas de faire un choix dans la liste.</p>
                                         </div>
@@ -78,7 +76,7 @@
                                         <div class="col-md-9">
                                             <select name="caleur" id="caleur" class="form-control">
                                                 <option value="">---Choisir---</option>
-                                                <?php selectUserAvecCadre($bdd, 0, 1); ?>
+                                                <?php //selectUserAvecCadre($bdd, 0, 1); ?>
                                             </select>
                                             <p class="help-block">N'oubliez pas de faire un choix dans la liste.</p>
                                         </div>

@@ -12,17 +12,19 @@
                     ?></p>
             </div>
             <div class="card-footer border-info">
-                <form method="post" action="fg_bv.php">
-                    <input type="hidden" name="id_punchline" value="<?php echo $punchline['id']; ?>">
-                    <input type='hidden' name='vote_validation' value="1">
-                    <div class="d-flex justify-content-auto">
-                        <div class="mr-auto">
-                            <button class="btn btn-outline-success" type='submit'><span class="oi oi-check" title="check" aria-hidden="true"></span> Je valide</button>
-                        </div>
-                        <button class="btn btn-outline-warning" href='fg_bv.php'><span class="oi oi-action-undo" title="action-undo" aria-hidden="true"></span> Annuler</button>
 
+                <div class="d-flex justify-content-auto">
+                    <div class="mr-auto">
+                        <form method="post" action="fg_bv.php">
+                            <input type="hidden" name="id_punchline" value="<?php echo $punchline['id']; ?>">
+                            <input type='hidden' name='vote_validation' value="1">
+                            <button class="btn btn-outline-success" type='submit'><span class="oi oi-check" title="check" aria-hidden="true"></span> Je valide</button>
+                        </form>
                     </div>
-                </form>
+                    <a class="btn btn-outline-warning" href='fg_bv.php' role="button"><span class="oi oi-action-undo" title="action-undo" aria-hidden="true"></span> Annuler</a>
+
+                </div>
+
             </div>
         </div>
     </div>
